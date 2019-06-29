@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+
+    <FrameLayout
+        style="@style/MatchMatch.Vertical">
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/swipeLayout"
+            style="@style/MatchMatch">
+
+            <com.scwang.smartrefresh.header.DeliveryHeader
+                style="@style/MatchWrap"/>
+
+            <com.pingxundata.answerliu.pxcore.view.MyNestedScrollView
+                style="@style/MatchWrap">
+
+                <LinearLayout
+                    android:id="@+id/parent_view"
+                    style="@style/MatchWrap.Vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/white">
+
+                        <TextView
+                            android:id="@+id/tv_topview_title"
+                            style="@style/WrapWrap"
+                            android:layout_centerHorizontal="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/home_tab_raiders"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"/>
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_banner"
+                        style="@style/MatchWrap"
+                        android:src="@mipmap/gonglue_banner"
+                        tools:ignore="ContentDescription"/>
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_top"
+                        style="@style/MatchWrap"/>
+
+                    <include layout="@layout/line_vertical_10dp"/>
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@mipmap/icon_biaoqian"
+                        android:text="@string/new_strategy"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+
+                    <include layout="@layout/line_vertical_1dp"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_list"
+                        style="@style/MatchWrap"/>
+                </LinearLayout>
+
+            </com.pingxundata.answerliu.pxcore.view.MyNestedScrollView>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <com.pingxundata.answerliu.pxcore.view.EmptyLayout
+            android:id="@+id/empty_layout"
+            style="@style/MatchMatch"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+</layout>

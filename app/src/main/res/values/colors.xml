@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="tab_font_h">#F4412F</color><!-- 首页tab文字点亮颜色 -->
+    <color name="tab_font_bright">#F4412F</color><!-- 主色调 -->
+    <color name="tab_font_bright50">#44412F33</color><!-- 主色调半透明 -->
+
+</resources>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="@style/MatchWrap"
+                android:id="@+id/itemView"
+                android:background="@color/white"
+                android:paddingTop="12dp">
+
+    <ImageView
+        android:id="@+id/iv"
+        style="@style/WrapWrap"
+        android:src="@mipmap/icon_biaoqian"
+        android:layout_marginStart="12dp"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/WrapWrap"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/iv"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:text="缤纷卡片"/>
+
+    <TextView
+        android:id="@+id/tv_more"
+        style="@style/WrapWrap"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/blue"
+        android:textSize="16sp"
+        android:text="@string/more"/>
+
+    <View
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/title"
+        android:background="@color/grey_line"/>
+
+</RelativeLayout>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        style="@style/MatchMatch.Vertical">
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/swipeLayout"
+            style="@style/MatchMatch">
+
+            <com.scwang.smartrefresh.header.DeliveryHeader
+                style="@style/MatchWrap"/>
+
+            <com.pingxundata.answerliu.pxcore.view.MyNestedScrollView
+                style="@style/MatchWrap">
+
+
+                <LinearLayout
+                    android:id="@+id/parent_view"
+                    style="@style/MatchWrap.Vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/white">
+
+                        <TextView
+                            android:id="@+id/tv_topview_title"
+                            style="@style/WrapWrap"
+                            android:layout_centerHorizontal="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/home_tab_accurate"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"/>
+
+                    </RelativeLayout>
+
+
+
+                    <RelativeLayout
+                        style="@style/MatchWrap"
+                        android:background="@color/tab_font_bright"
+                        android:paddingBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/tv1"
+                            style="@style/WrapWrap"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/loan_money_yuan"/>
+
+                        <TextView
+                            android:id="@+id/tv_total_money"
+                            style="@style/WrapWrap"
+                            android:layout_below="@+id/tv1"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="40sp"
+                            tools:text="80000"/>
+
+                        <LinearLayout
+                            style="@style/MatchWrap.Horizontal"
+                            android:layout_below="@+id/tv_total_money"
+                            android:paddingTop="20dp"
+                            tools:ignore="DisableBaselineAlignment">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_hkqx"
+                                    style="@style/MatchWrap"
+                                    android:gravity="center"
+                                    android:text="@string/repayment_term"/>
+
+                                <TextView
+                                    android:id="@+id/tv_hkqx_num"
+                                    style="@style/MatchWrap"
+                                    android:layout_marginTop="6dp"
+                                    android:gravity="center"
+                                    android:textColor="@color/black"
+                                    tools:text="60"/>
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_mqyh"
+                                    style="@style/MatchWrap"
+                                    android:gravity="center"
+                                    android:text="@string/unit_money"/>
+
+
+                                <TextView
+                                    android:id="@+id/tv_mqyh_num"
+                                    style="@style/MatchWrap"
+                                    android:layout_marginTop="6dp"
+                                    android:gravity="center"
+                                    android:textColor="@color/black"
+                                    tools:text="1300"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                    <com.pingxundata.answerliu.pxcore.view.MySeekBar
+                        android:id="@+id/sb_money"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@android:color/transparent"
+                        android:maxHeight="10dp"
+
+                        android:progressDrawable="@drawable/seekbar_progress_drawable"
+                        android:splitTrack="false"
+                        android:thumb="@mipmap/icon_seekbar_thumb"
+                        app:img="@drawable/transparent"
+                        app:textcolor="@color/black"
+                        app:textsize="16sp"/>
+
+                    <RelativeLayout
+                        style="@style/MatchWrap"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_start_money"
+                            style="@style/WrapWrap"
+                            tools:text="0"/>
+
+                        <TextView
+                            android:id="@+id/tv_end_money"
+                            style="@style/WrapWrap"
+                            android:layout_alignParentEnd="true"
+                            tools:text="200000"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        style="@style/MatchWrap"
+                        android:layout_marginBottom="14dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
+                        android:layout_marginTop="20dp">
+
+                        <CheckBox
+                            android:id="@+id/checkbox_day_or_month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/click_day_or_month"
+                            android:button="@null"/>
+
+                        <com.pingxundata.answerliu.pxcore.view.MySeekBar
+                            android:id="@+id/sb_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/checkbox_day_or_month"
+                            android:background="@android:color/transparent"
+                            android:maxHeight="10dp"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/seekbar_progress_drawable"
+                            android:thumb="@mipmap/icon_seekbar_thumb"
+                            app:img="@drawable/transparent"
+                            app:textcolor="@color/black"
+                            app:textsize="16sp"/>
+
+
+                        <TextView
+                            android:id="@+id/tv_start_time"
+                            style="@style/WrapWrap"
+                            android:layout_below="@+id/sb_time"
+                            android:layout_marginStart="14dp"
+                            android:layout_toEndOf="@+id/checkbox_day_or_month"
+                            tools:text="0"/>
+
+                        <TextView
+                            android:id="@+id/tv_end_time"
+                            style="@style/WrapWrap"
+                            android:layout_alignParentEnd="true"
+                            android:layout_below="@+id/sb_time"
+                            tools:text="360天"/>
+
+                    </RelativeLayout>
+
+                    <include layout="@layout/line_vertical_10dp"/>
+
+                    <!--搜索按钮-->
+                    <Button
+                        android:id="@+id/btn_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/shap_login"
+                        android:text="@string/immediately_loan"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:typeface="serif"/>
+
+                    <include layout="@layout/wechat_parent_lay" />
+
+                </LinearLayout>
+
+            </com.pingxundata.answerliu.pxcore.view.MyNestedScrollView>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <com.pingxundata.answerliu.pxcore.view.EmptyLayout
+            android:id="@+id/empty_layout"
+            style="@style/MatchMatch"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        style="@style/MatchMatch.Vertical"
+        android:background="@color/white">
+
+        <RelativeLayout
+            style="@style/MatchWrap"
+            android:background="@color/tab_font_bright">
+
+            <RelativeLayout
+                android:id="@+id/iv_topview_back"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp">
+
+                <ImageView
+                    style="@style/WrapWrap"
+                    android:layout_marginStart="10dp"
+                    android:background="@mipmap/icon_back"
+                    tools:ignore="ContentDescription"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_topview_title"
+                style="@style/WrapWrap"
+                android:layout_centerInParent="true"
+                android:text="@string/home_tab_product"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_type"
+                style="@style/WrapWrap.Vertical"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:drawableEnd="@mipmap/icon_down_arrow_white"
+                android:enabled="false"
+                android:padding="10dp"
+                android:text="@string/synthesize_index"
+                android:textColor="@color/white"/>
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_message_tip"
+            android:padding="10dp"
+            android:textColor="@color/red"
+            tools:text="温馨提示:同时申请5个以上贷款产品，100%下款成功率!"
+            android:textSize="13sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <include layout="@layout/line_vertical_1dp"/>
+
+        <!--<android.support.design.widget.TabLayout-->
+            <!--android:id="@+id/tab_layout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="45dp"-->
+            <!--app:tabIndicatorColor="@color/tab_font_bright"-->
+            <!--app:tabSelectedTextColor="@color/tab_font_bright"/>-->
+
+
+        <!--<android.support.v4.view.ViewPager-->
+            <!--android:id="@+id/view_pager"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--tools:ignore="InefficientWeight"/>-->
+
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/smart_refresh_layout"
+            style="@style/MatchMatch">
+
+            <com.scwang.smartrefresh.header.MaterialHeader
+                style="@style/MatchMatch"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                style="@style/MatchMatch"/>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+    </LinearLayout>
+</layout>

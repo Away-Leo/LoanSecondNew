@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:background="@color/white">
+
+        <com.pingxundata.answerliu.pxbanner.PXBanner
+            android:id="@+id/banner"
+            style="@style/BannerDefaultStyle"
+            android:visibility="gone"
+            app:banner_indicatorGravity="bottom|center_horizontal"
+            app:banner_transitionEffect="defaultEffect"/>
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:src="@mipmap/icon_toutiao"
+                tools:ignore="ContentDescription"/>
+
+            <TextView
+                style="@style/WrapWrap"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/shap_daikuan"
+                android:padding="2dp"
+                android:text="@string/home_tab_loan"
+                android:textColor="#FF2245"
+                android:textSize="12sp"/>
+
+            <com.sunfusheng.marqueeview.MarqueeView
+                android:id="@+id/marqueeView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                app:mvAnimDuration="1000"
+                app:mvDirection="top_to_bottom"
+                app:mvInterval="2000"
+                app:mvSingleLine="true"
+                app:mvTextColor="@color/black"
+                app:mvTextSize="14sp"/>
+
+        </LinearLayout>
+
+        <include layout="@layout/line_vertical_1dp"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_gxdk"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_bg"
+                android:button="@null"
+                android:drawablePadding="4dp"
+                android:drawableTop="@mipmap/home_gxdk"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/gxdk"
+                android:textColor="@color/tab_font"/>
+
+            <RadioButton
+                android:id="@+id/rb_xydk"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_bg"
+                android:button="@null"
+                android:drawablePadding="4dp"
+                android:drawableTop="@mipmap/home_xydk"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/xydk"
+                android:textColor="@color/tab_font"/>
+
+            <RadioButton
+                android:id="@+id/rb_dydk"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_bg"
+                android:button="@null"
+                android:drawablePadding="4dp"
+                android:drawableTop="@mipmap/home_dydk"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/dydk"
+                android:textColor="@color/tab_font"/>
+
+            <RadioButton
+                android:id="@+id/rb_xesd"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_bg"
+                android:button="@null"
+                android:drawablePadding="4dp"
+                android:drawableTop="@mipmap/home_xesd"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/xesd"
+                android:textColor="@color/tab_font"/>
+        </RadioGroup>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+       >
+
+
+    <FrameLayout
+        style="@style/MatchMatch.Vertical">
+
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/swipeLayout"
+            style="@style/MatchMatch">
+
+            <LinearLayout
+                    android:id="@+id/parent_view"
+                    style="@style/MatchMatch.Vertical">
+
+                    <TextView
+                        android:id="@+id/tv_topview_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="@string/home_tab_card"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+
+                    <include layout="@layout/line_vertical_1dp"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_top"
+                        style="@style/MatchWrap"/>
+
+                    <include layout="@layout/line_vertical_10dp"/>
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:drawableStart="@mipmap/icon_biaoqian"
+                        android:drawablePadding="10dp"
+                        android:text="推荐信用卡"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_list"
+                        style="@style/MatchWrap"/>
+                </LinearLayout>
+
+
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <com.pingxundata.answerliu.pxcore.view.EmptyLayout
+            android:id="@+id/empty_layout"
+            style="@style/MatchMatch"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+</layout>

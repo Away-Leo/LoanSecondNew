@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+
+    <FrameLayout
+        style="@style/MatchMatch.Vertical">
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/swipe_container"
+            style="@style/MatchMatch">
+
+            <com.scwang.smartrefresh.header.DeliveryHeader
+                style="@style/MatchWrap"
+                android:visibility="gone"/>
+
+            <com.pingxundata.answerliu.pxcore.view.MyNestedScrollView
+                style="@style/MatchWrap">
+
+                <LinearLayout
+                    android:id="@+id/parent_view"
+                    style="@style/MatchWrap.Vertical">
+                    <!-- 轮播图，头条，4个贷款类型 -->
+                    <include
+                        android:id="@+id/top_view"
+                        layout="@layout/fragment_home_head_view"/>
+
+                    <include layout="@layout/line_vertical_10dp"/>
+
+                    <!-- 贷款分类 -->
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_type"
+                        android:visibility="gone"
+                        style="@style/MatchWrap"/>
+
+
+                    <!-- 固定图片 -->
+                    <include layout="@layout/wechat_parent_lay" android:visibility="gone"/>
+                    <include
+                        layout="@layout/common_tip_layout"/>
+                    <!-- 热门推荐 -->
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_recommend"
+                        style="@style/MatchWrap"/>
+
+
+                </LinearLayout>
+            </com.pingxundata.answerliu.pxcore.view.MyNestedScrollView>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <com.pingxundata.answerliu.pxcore.view.EmptyLayout
+            android:id="@+id/empty_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+    </FrameLayout>
+</layout>
