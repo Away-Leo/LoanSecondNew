@@ -31,6 +31,7 @@ import static com.pingxun.other.RequestFlag.GET_FIND_BY_TYPE;
 import static com.pingxun.other.RequestFlag.GET_FIND_PARAMETER;
 import static com.pingxun.other.RequestFlag.GET_HEAD_LINES;
 import static com.pingxun.other.RequestFlag.GET_LIST;
+import static com.pingxun.other.RequestFlag.GET_PRODUCT_HOT;
 import static com.pingxun.other.RequestFlag.GET_PRODUCT_RECOMMEND;
 import static com.pingxun.other.RequestFlag.GET_PRODUCT_TYPE;
 import static com.pingxun.other.RequestFlag.GET_TOP;
@@ -83,6 +84,17 @@ public class ServerApi {
         params.put("channelNo", InitDatas.CHANNEL_NO);
         params.put("versionNo", InitDatas.APP_NAME + AppUtils.getVersionCode(context));
         PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_PRODUCT_RECOMMEND, params, GET_PRODUCT_RECOMMEND,ServerModelList.class);
+    }
+    /**
+     * 获取热门产品
+     */
+    public static void getProductHot(PXHttp.OnResultHandler handler,Context context) {
+        Map<String, String> params = new HashMap<>();
+        params.put("appName", InitDatas.APP_NAME);
+        params.put("isRecommend", "2");
+        params.put("channelNo", InitDatas.CHANNEL_NO);
+        params.put("versionNo", InitDatas.APP_NAME + AppUtils.getVersionCode(context));
+        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_PRODUCT_RECOMMEND, params, GET_PRODUCT_HOT,ServerModelList.class);
     }
 
     /**

@@ -2,6 +2,7 @@ package com.pingxun.ui.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.SpannableString;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.pingxun.activity.R;
+import com.pingxun.adapter.HomeHotAdapter;
 import com.pingxun.adapter.HomeMultipleItemAdapter;
 import com.pingxun.adapter.HomeRecommendAdapter;
 import com.pingxun.base.BaseFragment;
@@ -42,6 +44,7 @@ import java.util.List;
 
 import static com.pingxun.other.RequestFlag.GET_BANNER;
 import static com.pingxun.other.RequestFlag.GET_HEAD_LINES;
+import static com.pingxun.other.RequestFlag.GET_PRODUCT_HOT;
 import static com.pingxun.other.RequestFlag.GET_PRODUCT_RECOMMEND;
 import static com.pingxun.other.RequestFlag.GET_PRODUCT_TYPE;
 import static com.pingxun.other.RequestFlag.GET_WX_BANNER;
@@ -56,10 +59,12 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
 
     private HomeMultipleItemAdapter homeMultipleItemAdapter;
     private HomeRecommendAdapter homeRecommendAdapter;
+    private HomeHotAdapter homeHotAdapter;
     private List<HomeMultipleItem> homeMultipleItemList;
     private List<RecommendSection> recommendSectionList;
+    private List<RecommendSection> hotSectionList;
     private List<SpannableString> mStringList = new ArrayList<>();
-    private List<ServerModelList> mBannerList, mRecommendList, mTypeList,mHeadLinesList;
+    private List<ServerModelList> mBannerList, mRecommendList, mTypeList,mHeadLinesList,mHotList;
     private Bundle mDataBundle = new Bundle();
 
     @Override
@@ -125,7 +130,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
             }
         });
 
-        //===============================初始化热门推荐adapter=========================================//
+        //===============================初始化推荐adapter=========================================//
         homeRecommendAdapter = new HomeRecommendAdapter(R.layout.rv_item_product_style_one, R.layout.rv_item_fragment_home_label, recommendSectionList);
         bindingView.rvRecommend.setNestedScrollingEnabled(false);
         bindingView.rvRecommend.setHasFixedSize(false);
@@ -140,6 +145,24 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
                     ActivityUtil.goForward(mActivity, ProductListActivity.class, null, false);
                 }else {
                     isLoginToWeb(initBundle(mRecommendList.get(position-1).getId()+"",mRecommendList.get(position-1).getUrl(),mRecommendList.get(position-1).getName(),0));
+                }
+            }
+        });
+        //===============================初始化热门adapter=========================================//
+        homeHotAdapter = new HomeHotAdapter(R.layout.rv_item_fragment_home_hot, R.layout.rv_item_fragment_home_label, hotSectionList);
+        bindingView.rvHot.setNestedScrollingEnabled(false);
+        bindingView.rvHot.setHasFixedSize(false);
+        bindingView.rvHot.setLayoutManager(new GridLayoutManager(mActivity,2));
+        bindingView.rvHot.setAdapter(homeHotAdapter);
+        bindingView.rvHot.addOnItemTouchListener(new OnItemClickListener() {
+            @Override
+            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
+                RecommendSection recommendSection = hotSectionList.get(position);
+                if (recommendSection.isHeader){
+                    InitDatas.loanType="";
+                    ActivityUtil.goForward(mActivity, ProductListActivity.class, null, false);
+                }else {
+                    isLoginToWeb(initBundle(mHotList.get(position-1).getId()+"",mHotList.get(position-1).getUrl(),mHotList.get(position-1).getName(),0));
                 }
             }
         });
@@ -208,7 +231,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
                         WechatBanner.with(mActivity,mList.get(0).getBannerImg()).pop(mList.get(0).getBannerDetailImg());
                     }
                 }catch (Exception e){}
-                ServerApi.getProductRecommend(HomeFragment.this,mActivity);
+                //获取热门产品
+                ServerApi.getProductHot(HomeFragment.this,mActivity);
                 break;
             case GET_PRODUCT_RECOMMEND://产品推荐
                 try {
@@ -224,6 +248,22 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
                 }catch (Exception e){}
                 bindingView.swipeContainer.finishRefresh();
                 bindingView.emptyLayout.setErrorType(EmptyLayout.NO_ERROR);
+                break;
+            case GET_PRODUCT_HOT:
+                try {
+                    if (requestResult.isSuccess()) {
+                        mHotList = (List<ServerModelList>)requestResult.getResultList();
+                        hotSectionList = new ArrayList<>();
+                        hotSectionList.add(new RecommendSection(true, "热门", true));
+                        for (int i = 0; i < mHotList.size(); i++) {
+                            hotSectionList.add(new RecommendSection(mHotList.get(i)));
+                        }
+                        homeHotAdapter.setNewData(hotSectionList);
+                    }
+                }catch (Exception e){}
+                bindingView.swipeContainer.finishRefresh();
+                bindingView.emptyLayout.setErrorType(EmptyLayout.NO_ERROR);
+                ServerApi.getProductRecommend(HomeFragment.this,mActivity);
                 break;
         }
     }
@@ -243,6 +283,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
     @Override
     public void onRefresh(RefreshLayout refreshlayout) {
         bindingView.topView.marqueeView.stopFlipping();
+        ServerApi.getProductHot(HomeFragment.this,mActivity);
         ServerApi.getBanner(mActivity,HomeFragment.this);
     }
 

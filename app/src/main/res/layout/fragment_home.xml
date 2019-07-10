@@ -42,178 +42,49 @@
                         layout="@layout/common_tip_layout"/>
 
                     <!--热门-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <RelativeLayout
-                            style="@style/MatchWrap"
-                            android:id="@+id/itemView"
-                            android:background="@color/white"
-                            android:paddingTop="12dp">
+                    <!--<RelativeLayout
+                        style="@style/MatchWrap"
+                        android:id="@+id/itemView"
+                        android:background="@color/white"
+                        android:paddingTop="12dp">
 
-                            <ImageView
-                                android:id="@+id/iv"
-                                style="@style/WrapWrap"
-                                android:src="@mipmap/icon_biaoqian"
-                                android:layout_marginStart="12dp"
-                                tools:ignore="ContentDescription"/>
+                        <ImageView
+                            android:id="@+id/iv"
+                            style="@style/WrapWrap"
+                            android:src="@mipmap/icon_biaoqian"
+                            android:layout_marginStart="12dp"
+                            tools:ignore="ContentDescription"/>
 
-                            <TextView
-                                android:id="@+id/title"
-                                style="@style/WrapWrap"
-                                android:layout_marginStart="10dp"
-                                android:layout_toEndOf="@+id/iv"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                tools:text="缤纷卡片"/>
+                        <TextView
+                            android:id="@+id/title"
+                            style="@style/WrapWrap"
+                            android:layout_marginStart="10dp"
+                            android:layout_toEndOf="@+id/iv"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            tools:text="热门"/>
 
-                            <TextView
-                                android:id="@+id/tv_more"
-                                style="@style/WrapWrap"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginEnd="10dp"
-                                android:textColor="@color/blue"
-                                android:textSize="16sp"
-                                android:text="@string/more"/>
+                        <TextView
+                            android:id="@+id/tv_more"
+                            style="@style/WrapWrap"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="@color/blue"
+                            android:textSize="16sp"
+                            android:text="@string/more"/>
 
-                            <View
-                                android:layout_marginTop="12dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_below="@+id/title"
-                                android:background="@color/grey_line"/>
-
-                        </RelativeLayout>
-                        <GridLayout
+                        <View
+                            android:layout_marginTop="12dp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:rowCount="2"
-                            android:columnCount="2">
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/title"
+                            android:background="@color/grey_line"/>
 
-                            <LinearLayout
-                                android:id="@+id/hoy1"
-                                android:orientation="vertical"
-                                android:layout_marginLeft="10dp"
-                                android:layout_column="0"
-                                android:layout_row="0">
-
-                                <ImageView
-                                    android:id="@+id/himg1"
-                                    android:layout_width="140dp"
-                                    android:layout_height="140dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:layout_marginStart="10dp"
-                                    android:layout_marginTop="6dp"
-                                    android:scaleType="fitXY"
-                                    tools:ignore="ContentDescription" />
-
-                                <TextView
-                                    android:id="@+id/hname1"
-                                    style="@style/MatchWrap"
-                                    android:layout_marginTop="6dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:gravity="center_horizontal"
-                                    android:layout_marginStart="10dp"
-                                    android:ellipsize="end"
-                                    android:maxLines="1"
-                                    android:textColor="@color/black"
-                                    tools:text="标题1标题" />
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:id="@+id/hoy2"
-                                android:orientation="vertical"
-                                android:layout_marginLeft="10dp"
-                                android:layout_column="1"
-                                android:layout_row="0">
-
-                                <ImageView
-                                    android:id="@+id/himg2"
-                                    android:layout_width="140dp"
-                                    android:layout_height="140dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:layout_marginStart="10dp"
-                                    android:layout_marginTop="6dp"
-                                    android:scaleType="fitXY"
-                                    tools:ignore="ContentDescription" />
-
-                                <TextView
-                                    android:id="@+id/hname2"
-                                    style="@style/MatchWrap"
-                                    android:layout_marginTop="6dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:gravity="center_horizontal"
-                                    android:layout_marginStart="10dp"
-                                    android:ellipsize="end"
-                                    android:maxLines="1"
-                                    android:textColor="@color/black"
-                                    tools:text="标题1标题" />
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:id="@+id/hoy3"
-                                android:orientation="vertical"
-                                android:layout_marginLeft="@dimen/dp_10"
-                                android:layout_column="0"
-                                android:layout_row="1">
-
-                                <ImageView
-                                    android:id="@+id/himg3"
-                                    android:layout_width="140dp"
-                                    android:layout_height="140dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:layout_marginStart="10dp"
-                                    android:layout_marginTop="6dp"
-                                    android:scaleType="fitXY"
-                                    tools:ignore="ContentDescription" />
-
-                                <TextView
-                                    android:id="@+id/hname3"
-                                    style="@style/MatchWrap"
-                                    android:layout_marginTop="6dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:gravity="center_horizontal"
-                                    android:layout_marginStart="10dp"
-                                    android:ellipsize="end"
-                                    android:maxLines="1"
-                                    android:textColor="@color/black"
-                                    tools:text="标题1标题" />
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:id="@+id/hoy4"
-                                android:orientation="vertical"
-                                android:layout_column="1"
-                                android:layout_marginLeft="@dimen/dp_10"
-                                android:layout_row="1">
-
-                                <ImageView
-                                    android:id="@+id/himg4"
-                                    android:layout_width="140dp"
-                                    android:layout_height="140dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:layout_marginStart="10dp"
-                                    android:layout_marginTop="6dp"
-                                    android:scaleType="fitXY"
-                                    tools:ignore="ContentDescription" />
-
-                                <TextView
-                                    android:id="@+id/hname4"
-                                    style="@style/MatchWrap"
-                                    android:layout_marginTop="6dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:gravity="center_horizontal"
-                                    android:layout_marginStart="10dp"
-                                    android:ellipsize="end"
-                                    android:maxLines="1"
-                                    android:textColor="@color/black"
-                                    tools:text="标题1标题" />
-
-                            </LinearLayout>
-                        </GridLayout>
-                    </LinearLayout>
+                    </RelativeLayout>-->
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_hot"
+                        style="@style/MatchWrap"/>
+                    <include layout="@layout/line_vertical_10dp"/>
                     <!-- 推荐 -->
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv_recommend"

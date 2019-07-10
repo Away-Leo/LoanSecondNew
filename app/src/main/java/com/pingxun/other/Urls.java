@@ -11,7 +11,8 @@ public class Urls extends ENUM_REQUEST_URL {
     //"https://119.23.64.92/"外网
     //"https://192.168.1.100:1234/"内网
     //"https://192.168.1.126:9999/"本地
-    static { DOMAIN = "https://www.pingxundata.com"; }
+//    static { DOMAIN = "https://www.pingxundata.com"; }
+    static { DOMAIN = "http://192.168.1.88:9999"; }
 
     private static final String SERVER = DOMAIN + "/";
 //    public static final String SERVER = "https://119.23.64.92/";

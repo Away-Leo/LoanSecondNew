@@ -120,7 +120,8 @@ public class InitDatas {
 
 
     public static String APP_NAME="MBD";
-    public static String CHANNEL_NO= MCPTool.getChannel(App.getAppContext());//渠道类型：ios,android,wechat
+//    public static String CHANNEL_NO= MCPTool.getChannel(App.getAppContext());//渠道类型：ios,android,wechat
+    public static String CHANNEL_NO= "vivo";//渠道类型：ios,android,wechat
 //    public static String CHANNEL_NO="OFFICIAL_TEST";
     public static String ErrorMsg="服务器数据异常,请稍后再试!";
     public static String SP_NAME=APP_NAME+"_UserInfo";//sp文件名
