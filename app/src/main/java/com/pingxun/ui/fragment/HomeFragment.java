@@ -215,7 +215,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
                     if (requestResult.isSuccess()) {
                         mRecommendList = (List<ServerModelList>)requestResult.getResultList();
                         recommendSectionList = new ArrayList<>();
-                        recommendSectionList.add(new RecommendSection(true, "热门推荐", true));
+                        recommendSectionList.add(new RecommendSection(true, "推荐", true));
                         for (int i = 0; i < mRecommendList.size(); i++) {
                             recommendSectionList.add(new RecommendSection(mRecommendList.get(i)));
                         }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/WrapWrap"
+    android:background="@drawable/ripple_bg">
+
+    <LinearLayout
+        android:id="@+id/hot_pro_item"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/pro_img"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/pro_name"
+            style="@style/MatchWrap"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center_horizontal"
+            android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            tools:text="标题1标题" />
+    </LinearLayout>
+
+
+</RelativeLayout>
