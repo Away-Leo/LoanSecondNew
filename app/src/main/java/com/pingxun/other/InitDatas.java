@@ -116,12 +116,12 @@ public class InitDatas {
     /**
      * 贷款列表顶部提示语
      */
-    public static String messageTip="温馨提示:同时申请5个以上贷款产品，100%下款成功率!";
+    public static String messageTip="温馨提示:同时申请5个以上贷款产品，99%下款成功率!";
 
 
     public static String APP_NAME="MBD";
-//    public static String CHANNEL_NO= MCPTool.getChannel(App.getAppContext());//渠道类型：ios,android,wechat
-    public static String CHANNEL_NO= "vivo";//渠道类型：ios,android,wechat
+    public static String CHANNEL_NO= MCPTool.getChannel(App.getAppContext());//渠道类型：ios,android,wechat
+//    public static String CHANNEL_NO= "vivo";//渠道类型：ios,android,wechat
 //    public static String CHANNEL_NO="OFFICIAL_TEST";
     public static String ErrorMsg="服务器数据异常,请稍后再试!";
     public static String SP_NAME=APP_NAME+"_UserInfo";//sp文件名

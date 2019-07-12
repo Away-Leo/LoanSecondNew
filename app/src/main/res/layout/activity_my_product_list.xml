@@ -51,7 +51,7 @@
             android:id="@+id/tv_message_tip"
             android:padding="10dp"
             android:textColor="@color/red"
-            tools:text="温馨提示:同时申请5个以上贷款产品，100%下款成功率!"
+            tools:text="温馨提示:同时申请5个以上贷款产品，99%下款成功率!"
             android:textSize="13sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
