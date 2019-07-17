@@ -10,7 +10,7 @@
         <com.pingxundata.answerliu.pxbanner.PXBanner
             android:id="@+id/banner"
             style="@style/BannerDefaultStyle"
-            android:visibility="gone"
+            android:layout_height="140dp"
             app:banner_indicatorGravity="bottom|center_horizontal"
             app:banner_transitionEffect="defaultEffect"/>
 

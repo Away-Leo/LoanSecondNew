@@ -17,6 +17,7 @@
                 android:visibility="gone"/>
 
             <com.pingxundata.answerliu.pxcore.view.MyNestedScrollView
+                android:layout_marginTop="106dp"
                 style="@style/MatchWrap">
 
                 <LinearLayout
@@ -41,46 +42,6 @@
                     <include
                         layout="@layout/common_tip_layout"/>
 
-                    <!--热门-->
-                    <!--<RelativeLayout
-                        style="@style/MatchWrap"
-                        android:id="@+id/itemView"
-                        android:background="@color/white"
-                        android:paddingTop="12dp">
-
-                        <ImageView
-                            android:id="@+id/iv"
-                            style="@style/WrapWrap"
-                            android:src="@mipmap/icon_biaoqian"
-                            android:layout_marginStart="12dp"
-                            tools:ignore="ContentDescription"/>
-
-                        <TextView
-                            android:id="@+id/title"
-                            style="@style/WrapWrap"
-                            android:layout_marginStart="10dp"
-                            android:layout_toEndOf="@+id/iv"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            tools:text="热门"/>
-
-                        <TextView
-                            android:id="@+id/tv_more"
-                            style="@style/WrapWrap"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="10dp"
-                            android:textColor="@color/blue"
-                            android:textSize="16sp"
-                            android:text="@string/more"/>
-
-                        <View
-                            android:layout_marginTop="12dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_below="@+id/title"
-                            android:background="@color/grey_line"/>
-
-                    </RelativeLayout>-->
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv_hot"
                         style="@style/MatchWrap"/>
@@ -95,6 +56,22 @@
             </com.pingxundata.answerliu.pxcore.view.MyNestedScrollView>
 
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap"
+            android:layout_gravity="top"
+            android:paddingTop="10dp"
+            android:orientation="vertical"
+            android:background="@color/white"
+            >
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/dabai"/>
+            <include layout="@layout/common_tip_layout"/>
+        </LinearLayout>
 
         <com.pingxundata.answerliu.pxcore.view.EmptyLayout
             android:id="@+id/empty_layout"

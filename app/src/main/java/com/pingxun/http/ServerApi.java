@@ -76,7 +76,7 @@ public class ServerApi {
     }
 
     /**
-     * 获取产品推荐
+     * 获取推荐（精品）产品
      */
     public static void getProductRecommend(PXHttp.OnResultHandler handler,Context context) {
         Map<String, String> params = new HashMap<>();

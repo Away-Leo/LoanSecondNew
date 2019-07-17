@@ -5,41 +5,50 @@
 
     <LinearLayout
         style="@style/MatchWrap.Horizontal"
-        android:paddingBottom="6dp"
-        android:background="@color/tab_font_bright"
-        android:paddingTop="6dp">
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:src="@mipmap/tip"
-            tools:ignore="ContentDescription"/>
-
-        <TextView
-            style="@style/WrapWrap"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/shap_daikuan"
-            android:padding="2dp"
-            android:text="@string/tip"
-            android:textColor="#FF2245"
-            android:textSize="14sp"/>
-
-        <com.sunfusheng.marqueeview.MarqueeView
-            android:id="@+id/marqueeView"
+        android:paddingBottom="8dp"
+        android:background="@color/grey_line"
+        android:gravity="center_horizontal"
+        android:paddingTop="8dp">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            app:mvAnimDuration="1000"
-            app:mvDirection="top_to_bottom"
-            app:mvInterval="2000"
-            app:mvSingleLine="true"
-            app:mvTextColor="@color/black"
-            app:mvTextSize="14sp"/>
+            android:background="@color/white"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:src="@mipmap/tip"
+                tools:ignore="ContentDescription"/>
+
+            <TextView
+                android:layout_height="25dp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:padding="2dp"
+                android:text="@string/tip"
+                android:textSize="14sp"/>
+
+            <com.sunfusheng.marqueeview.MarqueeView
+                android:visibility="gone"
+                android:id="@+id/marqueeView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                app:mvAnimDuration="1000"
+                app:mvDirection="top_to_bottom"
+                app:mvInterval="2000"
+                app:mvSingleLine="true"
+                app:mvTextColor="@color/black"
+                app:mvTextSize="14sp"/>
+        </LinearLayout>
 
     </LinearLayout>
 </layout>
