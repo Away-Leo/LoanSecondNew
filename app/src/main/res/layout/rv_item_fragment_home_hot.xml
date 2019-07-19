@@ -3,13 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="8dp"
-    android:paddingBottom="8dp"
+    android:paddingBottom="13dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/hot_container"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shap1"
+        android:paddingBottom="20dp"
+        android:paddingTop="@dimen/dp_10"
         android:gravity="center"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
         <ImageView
             android:id="@+id/hot_propic"
             android:layout_width="30dp"
@@ -19,51 +26,50 @@
 
         <TextView
             android:id="@+id/hot_proname"
-            android:layout_width="65dp"
+            android:layout_width="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textStyle="bold"
-            android:textColor="@color/firstText"
-            android:text="产品名称"
-            android:textSize="14sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/hot_prorange"
-            android:layout_width="114dp"
+            android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="产品名称"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/hot_prorange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:maxEms="10"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
             android:text="1000~2000元"
-            android:textColor="@color/tab_font_bright"
-            android:textSize="17sp" />
+            android:textColor="@color/white"
+            android:textSize="15sp" />
         <TextView
             android:id="@+id/hot_prorangetext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"
             android:text="额度范围"
             android:textSize="14sp" />
         <TextView
             android:id="@+id/hot_apply"
-            android:layout_width="114dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             android:paddingTop="@dimen/dp_4"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:paddingBottom="@dimen/dp_4"
             android:gravity="center_horizontal"
-            android:textColor="@color/white"
-            android:text="立即申请"
-            android:background="@drawable/home_button"
-            android:textSize="14sp" />
+            android:textColor="@color/tab_font_bright"
+            android:text="快速申请"
+            android:background="@drawable/white_round"
+            android:textSize="12sp" />
     </LinearLayout>
 </LinearLayout>

@@ -33,6 +33,7 @@ import static com.pingxun.other.RequestFlag.GET_HEAD_LINES;
 import static com.pingxun.other.RequestFlag.GET_LIST;
 import static com.pingxun.other.RequestFlag.GET_PRODUCT_HOT;
 import static com.pingxun.other.RequestFlag.GET_PRODUCT_RECOMMEND;
+import static com.pingxun.other.RequestFlag.GET_PRODUCT_SHARP;
 import static com.pingxun.other.RequestFlag.GET_PRODUCT_TYPE;
 import static com.pingxun.other.RequestFlag.GET_TOP;
 import static com.pingxun.other.RequestFlag.GET_TU;
@@ -55,56 +56,50 @@ public class ServerApi {
 
     }
 
-    /**
-     * 获取微信Banner
-     */
-    public static void getWxBanner(Context context, PXHttp.OnResultHandler handler) {
-        Map<String, String> params = new HashMap<>();
-        params.put("position", "wx_banner");
-        params.put("versionNo", InitDatas.APP_NAME + AppUtils.getVersionCode(context));
-        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_BANNER, params, GET_WX_BANNER,ServerModelList.class);
 
-    }
-
-    /**
-     * 获取首页产品分类
-     */
-    public static void getProductType(PXHttp.OnResultHandler handler) {
-        Map<String, String> params = new HashMap<>();
-        params.put("appName", InitDatas.APP_NAME);
-        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_PRODUCT_TYPE, params, GET_PRODUCT_TYPE,ServerModelList.class);
-    }
+//    /**
+//     * 获取首页产品分类
+//     */
+//    public static void getProductType(PXHttp.OnResultHandler handler) {
+//        Map<String, String> params = new HashMap<>();
+//        params.put("appName", InitDatas.APP_NAME);
+//        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_PRODUCT_TYPE, params, GET_PRODUCT_TYPE,ServerModelList.class);
+//    }
 
     /**
-     * 获取推荐（精品）产品
+     * 获取热门推荐产品
      */
     public static void getProductRecommend(PXHttp.OnResultHandler handler,Context context) {
         Map<String, String> params = new HashMap<>();
         params.put("appName", InitDatas.APP_NAME);
+        params.put("isRecommend", "1");
         params.put("channelNo", InitDatas.CHANNEL_NO);
         params.put("versionNo", InitDatas.APP_NAME + AppUtils.getVersionCode(context));
         PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_PRODUCT_RECOMMEND, params, GET_PRODUCT_RECOMMEND,ServerModelList.class);
     }
     /**
-     * 获取热门产品
+     * 获取最新口子
      */
     public static void getProductHot(PXHttp.OnResultHandler handler,Context context) {
+        Map<String, String> params = new HashMap<>();
+        params.put("appName", InitDatas.APP_NAME);
+        params.put("isRecommend", "3");
+        params.put("channelNo", InitDatas.CHANNEL_NO);
+        params.put("versionNo", InitDatas.APP_NAME + AppUtils.getVersionCode(context));
+        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_PRODUCT_RECOMMEND, params, GET_PRODUCT_HOT,ServerModelList.class);
+    }
+    /**
+     * 获取精品推荐
+     */
+    public static void getProductSharp(PXHttp.OnResultHandler handler,Context context) {
         Map<String, String> params = new HashMap<>();
         params.put("appName", InitDatas.APP_NAME);
         params.put("isRecommend", "2");
         params.put("channelNo", InitDatas.CHANNEL_NO);
         params.put("versionNo", InitDatas.APP_NAME + AppUtils.getVersionCode(context));
-        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_PRODUCT_RECOMMEND, params, GET_PRODUCT_HOT,ServerModelList.class);
+        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_PRODUCT_RECOMMEND, params, GET_PRODUCT_SHARP,ServerModelList.class);
     }
 
-    /**
-     * 获取职业集合
-     */
-    public static void getJobData(PXHttp.OnResultHandler handler) {
-        Map<String, String> params = new HashMap<>();
-        params.put("type", "job");
-        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_FIND_BY_TYPE, params, GET_FIND_BY_TYPE,ServerModelList.class);
-    }
 
     /**
      * 获取贷款参数
@@ -137,14 +132,6 @@ public class ServerApi {
         PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_FIND_BY_ID, params, GET_FIND_BY_ID,ServerModelObject.class);
     }
 
-    /**
-     * 获取综合指数
-     */
-    public static void getZsType(PXHttp.OnResultHandler handler) {
-        Map<String, String> map = new HashMap<>();
-        map.put("type", "zsType");
-        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_FIND_BY_TYPE, map, GET_ZS_TYPE,ServerModelList.class);
-    }
 
 
 
@@ -157,12 +144,12 @@ public class ServerApi {
         PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_CMS_FIND_BY_ID, params, GET_FIND_BY_STRATEGY_ID,ServerModelObject.class);
     }
 
-    /**
-     * 获取头条
-     */
-    public static void getHeadlines(PXHttp.OnResultHandler handler) {
-        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_HEAD_LINES, null, GET_HEAD_LINES,ServerModelList.class);
-    }
+//    /**
+//     * 获取头条
+//     */
+//    public static void getHeadlines(PXHttp.OnResultHandler handler) {
+//        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_HEAD_LINES, null, GET_HEAD_LINES,ServerModelList.class);
+//    }
 
     /**
      * 获取单独图片

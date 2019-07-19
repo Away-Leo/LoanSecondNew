@@ -6,15 +6,15 @@
                 android:background="@color/white"
                 android:paddingTop="12dp">
     <ImageView
-        android:id="@+id/iv"
+        android:id="@+id/sharp_iv"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@mipmap/hot"
+        android:src="@mipmap/icon_biaoqian"
         android:layout_marginStart="12dp"
         tools:ignore="ContentDescription"/>
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/sharp_title"
         style="@style/WrapWrap"
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/iv"
@@ -23,14 +23,19 @@
         tools:text="缤纷卡片"/>
 
     <TextView
-        android:id="@+id/tv_more"
+        android:id="@+id/sharp_tv_more"
         style="@style/WrapWrap"
-        android:visibility="gone"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="10dp"
         android:textColor="@color/colorAccent"
         android:textSize="16sp"
         android:text="@string/more"/>
 
+    <View
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/title"
+        android:background="@color/grey_line"/>
 
 </RelativeLayout>

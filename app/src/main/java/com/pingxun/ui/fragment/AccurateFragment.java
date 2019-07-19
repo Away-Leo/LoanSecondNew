@@ -137,7 +137,6 @@ public class AccurateFragment extends BaseFragment<FragmentAccurateBinding> impl
                         runinUI();
                     }
                 } catch (Exception e) {}
-                ServerApi.getWxBanner(mActivity,AccurateFragment.this);
                 break;
             case GET_WX_BANNER:
                 try {

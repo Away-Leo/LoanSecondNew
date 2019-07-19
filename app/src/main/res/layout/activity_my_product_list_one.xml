@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchWrap"
+    android:background="@drawable/ripple_bg">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:scaleType="fitXY"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/MatchWrap"
+        android:layout_marginTop="6dp"
+        android:layout_toEndOf="@+id/iv"
+        android:textColor="@color/black"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_toStartOf="@+id/iv_tuijian"
+        tools:text="标题1标题比天天发发发发发到付舒服撒发的法法师"/>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@+id/iv"
+        style="@style/MatchWrap"
+        tools:ignore="RtlHardcoded">
+
+        <!--额度范围 -->
+        <LinearLayout
+            style="@style/WrapWrap.Vertical">
+            <TextView
+                style="@style/WrapWrap"
+                android:text="@string/quota_range"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/tv_edu"
+                style="@style/WrapWrap"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                tools:text="10-20万元"/>
+        </LinearLayout>
+
+        <!--期限范围 -->
+        <LinearLayout
+            style="@style/WrapWrap.Vertical"
+            android:layout_centerHorizontal="true">
+            <TextView
+                style="@style/WrapWrap"
+                android:textSize="12sp"
+                android:text="@string/time_range"/>
+            <TextView
+                android:id="@+id/tv_qixian"
+                style="@style/WrapWrap"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                tools:text="1-36月"/>
+        </LinearLayout>
+
+        <!--利率 -->
+        <LinearLayout
+            style="@style/WrapWrap.Vertical"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true">
+            <TextView
+                android:id="@+id/tv_lilv_danwei"
+                style="@style/WrapWrap"
+                android:textSize="12sp"
+                tools:text="月利率"/>
+            <TextView
+                android:id="@+id/tv_lilv"
+                style="@style/WrapWrap"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                tools:text="3.6%"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_tuijian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_tuijian"
+        android:visibility="gone"
+        android:layout_marginEnd="6dp"
+        android:layout_alignParentEnd="true"
+        tools:ignore="ContentDescription"/>
+
+
+    <View
+        android:id="@+id/line"
+        android:layout_below="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/grey_line"/>
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:layout_below="@+id/line"
+        style="@style/MatchWrap">
+
+        <com.pingxundata.answerliu.pxcore.view.FluidLayout
+
+            android:id="@+id/flow_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/tv_apply_num"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            tools:ignore="RtlHardcoded"/>
+
+        <TextView
+            android:id="@+id/tv_apply_num"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            android:textSize="12sp"
+            tools:text="申请人数2222"
+            style="@style/WrapWrap"/>
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_below="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/grey_line" />
+
+</RelativeLayout>

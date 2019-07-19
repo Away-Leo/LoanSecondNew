@@ -14,6 +14,7 @@ import com.chad.library.adapter.base.BaseSectionQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.pingxun.activity.R;
 import com.pingxun.data.RecommendSection;
+import com.pingxun.other.GetResourcesUtils;
 import com.pingxundata.answerliu.pxcore.data.ServerModelList;
 import com.pingxundata.answerliu.pxcore.view.FluidLayout;
 import com.pingxundata.pxmeta.utils.DensityUtils;
@@ -21,6 +22,7 @@ import com.pingxundata.pxmeta.utils.GlideImgManager;
 import com.pingxundata.pxmeta.utils.MyTools;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Administrator on 2017/8/19.
@@ -45,6 +47,9 @@ public class HomeHotAdapter extends BaseSectionQuickAdapter<RecommendSection, Ba
         ServerModelList dataBean = item.t;
         GlideImgManager.glideLoader(mContext, dataBean.getImg(), R.mipmap.img_default, R.mipmap.img_default, (ImageView) helper.getView(R.id.hot_propic), 1);
 
+        String drawName="shap"+ (int)(1+Math.random()*(3-1+1))+"";
+
+        helper.setBackgroundRes(R.id.hot_container, GetResourcesUtils.getDrawableId(mContext,drawName));
         helper.setText(R.id.hot_proname, dataBean.getName());
         helper.setText(R.id.hot_prorange, MyTools.initTvQuota(dataBean.getStartAmount(), dataBean.getEndAmount()));
 

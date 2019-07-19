@@ -76,7 +76,6 @@ public class ProductListFragment extends BaseFragment<ActivityMyProductListBindi
         bindingView.smartRefreshLayout.setEnableHeaderTranslationContent(false);
         bindingView.smartRefreshLayout.setOnRefreshListener(this);
         bindingView.smartRefreshLayout.autoRefresh();
-        ServerApi.getZsType(this);
     }
 
     @Override

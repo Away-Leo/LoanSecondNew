@@ -12,12 +12,15 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.pingxun.activity.R;
 import com.pingxun.adapter.HomeHotAdapter;
 import com.pingxun.adapter.HomeMultipleItemAdapter;
 import com.pingxun.adapter.HomeRecommendAdapter;
+import com.pingxun.adapter.HomeSharpAdapter;
 import com.pingxun.base.BaseFragment;
 import com.pingxun.data.HomeMultipleItem;
 import com.pingxun.data.RecommendSection;
@@ -33,6 +36,7 @@ import com.pingxundata.pxcore.utils.WechatBanner;
 import com.pingxundata.pxmeta.http.PXHttp;
 import com.pingxundata.pxmeta.pojo.RequestResult;
 import com.pingxundata.pxmeta.utils.ActivityUtil;
+import com.pingxundata.pxmeta.utils.GlideCircleTransform;
 import com.pingxundata.pxmeta.utils.GlideImgManager;
 import com.pingxundata.pxmeta.utils.MyTools;
 import com.pingxundata.pxmeta.utils.NetUtil;
@@ -46,6 +50,7 @@ import static com.pingxun.other.RequestFlag.GET_BANNER;
 import static com.pingxun.other.RequestFlag.GET_HEAD_LINES;
 import static com.pingxun.other.RequestFlag.GET_PRODUCT_HOT;
 import static com.pingxun.other.RequestFlag.GET_PRODUCT_RECOMMEND;
+import static com.pingxun.other.RequestFlag.GET_PRODUCT_SHARP;
 import static com.pingxun.other.RequestFlag.GET_PRODUCT_TYPE;
 import static com.pingxun.other.RequestFlag.GET_WX_BANNER;
 
@@ -57,15 +62,13 @@ import static com.pingxun.other.RequestFlag.GET_WX_BANNER;
 
 public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements PXHttp.OnResultHandler,PXBanner.Delegate<ImageView, String>, PXBanner.Adapter<ImageView, String>,OnRefreshListener,View.OnClickListener {
 
-    private HomeMultipleItemAdapter homeMultipleItemAdapter;
     private HomeRecommendAdapter homeRecommendAdapter;
+    private RecommendSection sharp;
     private HomeHotAdapter homeHotAdapter;
-    private List<HomeMultipleItem> homeMultipleItemList;
     private List<RecommendSection> recommendSectionList;
     private List<RecommendSection> hotSectionList;
-    private List<SpannableString> mStringList = new ArrayList<>();
-    private List<ServerModelList> mBannerList, mRecommendList, mTypeList,mHeadLinesList,mHotList;
-    private Bundle mDataBundle = new Bundle();
+    private List<RecommendSection> sharpSectionList;
+    private List<ServerModelList> mBannerList, mRecommendList,mHotList,mSharpList;
 
     @Override
     protected int getRootLayoutResID() {
@@ -76,33 +79,21 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
     protected void initData() {
         initAdapter();
         bindingView.swipeContainer.setOnRefreshListener(this);
-        bindingView.topView.rbDydk.setOnClickListener(this);
-        bindingView.topView.rbGxdk.setOnClickListener(this);
-        bindingView.topView.rbXesd.setOnClickListener(this);
-        bindingView.topView.rbXydk.setOnClickListener(this);
         bindingView.topView.banner.setDelegate(this);
         bindingView.emptyLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
         bindingView.swipeContainer.autoRefresh();
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.rb_gxdk://工薪贷款
-                goList("salaryloan");
-                break;
-            case R.id.rb_xydk://信用贷款
-                goList("creditcardloan");
-                break;
-            case R.id.rb_dydk://抵押贷款
-                goList("diyaloan");
-                break;
-            case R.id.rb_xesd://小额贷款
-                goList("xiaoejishuloan");
-                break;
             case R.id.empty_layout:
                 bindingView.emptyLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
                 bindingView.swipeContainer.autoRefresh();
+                break;
+            case R.id.sharp_product:
+                isLoginToWeb(initBundle(sharp.t.getId()+"",sharp.t.getUrl(),sharp.t.getName(),0));
                 break;
 
         }
@@ -117,21 +108,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
      */
     private void initAdapter() {
         bindingView.topView.banner.setAdapter(this);
-        //===============================初始化产品分类adapter=========================================//
-        homeMultipleItemAdapter = new HomeMultipleItemAdapter(getContext(), homeMultipleItemList);
-        bindingView.rvType.setNestedScrollingEnabled(false);
-        bindingView.rvType.setHasFixedSize(false);
-        bindingView.rvType.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        bindingView.rvType.setAdapter(homeMultipleItemAdapter);
-        bindingView.rvType.addOnItemTouchListener(new OnItemClickListener() {
-            @Override
-            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                goList(mTypeList.get(position).getCode());
-            }
-        });
 
         //===============================初始化推荐adapter=========================================//
-        homeRecommendAdapter = new HomeRecommendAdapter(R.layout.rv_item_product_style_one, R.layout.rv_item_fragment_home_label, recommendSectionList);
+        homeRecommendAdapter = new HomeRecommendAdapter(R.layout.activity_my_product_list_one, R.layout.rv_item_fragment_home_label, recommendSectionList);
         bindingView.rvRecommend.setNestedScrollingEnabled(false);
         bindingView.rvRecommend.setHasFixedSize(false);
         bindingView.rvRecommend.setLayoutManager(new LinearLayoutManager(mActivity));
@@ -152,7 +131,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
         homeHotAdapter = new HomeHotAdapter(R.layout.rv_item_fragment_home_hot, R.layout.rv_item_fragment_home_label, hotSectionList);
         bindingView.rvHot.setNestedScrollingEnabled(false);
         bindingView.rvHot.setHasFixedSize(false);
-        bindingView.rvHot.setLayoutManager(new GridLayoutManager(mActivity,2));
+        bindingView.rvHot.setLayoutManager(new GridLayoutManager(mActivity,3));
         bindingView.rvHot.setAdapter(homeHotAdapter);
         bindingView.rvHot.addOnItemTouchListener(new OnItemClickListener() {
             @Override
@@ -166,7 +145,6 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
                 }
             }
         });
-
     }
 
     @Override
@@ -185,44 +163,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
                         }
                     }
                 } catch (Exception e) {}
-                ServerApi.getHeadlines(HomeFragment.this);
-                break;
-
-            case GET_HEAD_LINES://头条
-                try {
-                    if (requestResult.isSuccess()) {
-                        mHeadLinesList = (List<ServerModelList>)requestResult.getResultList();
-                        mStringList.clear();
-                        for (int i = 0; i < mHeadLinesList.size(); i++) {
-                            String s1 = mHeadLinesList.get(i).getPhone();
-                            String s2 = mHeadLinesList.get(i).getName();
-                            String s3 = MyTools.addComma(String.valueOf(mHeadLinesList.get(i).getApplyAmount()));
-                            SpannableString spannableString = new SpannableString(s1 + "成功通过" + s2 + "贷到" + s3 + "元");
-                            ForegroundColorSpan colorSpan1 = new ForegroundColorSpan(Color.parseColor("#FF0000"));
-                            ForegroundColorSpan colorSpan2 = new ForegroundColorSpan(Color.parseColor("#FF0000"));
-                            spannableString.setSpan(colorSpan1, s1.length()+4, spannableString.length() - (s3.length() + 3), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            spannableString.setSpan(colorSpan2, spannableString.length() - (s3.length() + 1), spannableString.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            mStringList.add(spannableString);
-                        }
-                        bindingView.topView.marqueeView.startWithList(mStringList);
-                        bindingView.topView.marqueeView.startFlipping();
-                    }
-                } catch (Exception e) {}
-                ServerApi.getProductType(HomeFragment.this);
-                break;
-            case GET_PRODUCT_TYPE://产品分类
-                try {
-                    if (requestResult.isSuccess()) {
-                        mTypeList = (List<ServerModelList>)requestResult.getResultList();
-                        homeMultipleItemList = new ArrayList<>();
-                        homeMultipleItemList.add(new HomeMultipleItem(HomeMultipleItem.PRODUCT_TYPE_FIRST, 2, mTypeList.get(0).getId(), mTypeList.get(0).getName(), mTypeList.get(0).getDescription(), mTypeList.get(0).getImg(), mTypeList.get(0).getCode()));
-                        for (int i = 1; i < 5; i++) {
-                            homeMultipleItemList.add(new HomeMultipleItem(HomeMultipleItem.PRODUCT_TYPE_NEXT, 2, mTypeList.get(i).getId(), mTypeList.get(i).getName(), mTypeList.get(i).getDescription(), mTypeList.get(i).getImg(), mTypeList.get(i).getCode()));
-                        }
-                        homeMultipleItemAdapter.setNewData(homeMultipleItemList);
-                    }
-                }catch (Exception e){}
-                ServerApi.getWxBanner(mActivity,HomeFragment.this);
+                ServerApi.getProductHot(HomeFragment.this,mActivity);
                 break;
             case GET_WX_BANNER://获取微信图片
                 try {
@@ -232,14 +173,13 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
                     }
                 }catch (Exception e){}
                 //获取热门产品
-                ServerApi.getProductHot(HomeFragment.this,mActivity);
                 break;
-            case GET_PRODUCT_RECOMMEND://产品推荐
+            case GET_PRODUCT_RECOMMEND://热门推荐
                 try {
                     if (requestResult.isSuccess()) {
                         mRecommendList = (List<ServerModelList>)requestResult.getResultList();
                         recommendSectionList = new ArrayList<>();
-                        recommendSectionList.add(new RecommendSection(true, "推荐", true));
+                        recommendSectionList.add(new RecommendSection(true, "热门推荐", false));
                         for (int i = 0; i < mRecommendList.size(); i++) {
                             recommendSectionList.add(new RecommendSection(mRecommendList.get(i)));
                         }
@@ -249,12 +189,34 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
                 bindingView.swipeContainer.finishRefresh();
                 bindingView.emptyLayout.setErrorType(EmptyLayout.NO_ERROR);
                 break;
+            case GET_PRODUCT_SHARP://精品推荐
+                try {
+                    if (requestResult.isSuccess()) {
+                        mSharpList = (List<ServerModelList>)requestResult.getResultList();
+                        sharpSectionList = new ArrayList<>();
+                        sharp=new RecommendSection(mSharpList.get(0));
+                        GlideImgManager.glideLoader(mActivity, sharp.t.getImg(), R.mipmap.img_default, R.mipmap.img_default, getActivity().findViewById(R.id.sharp_proicon), 0);
+
+                        bindingView.sharpTitle.setText(sharp.t.getName());
+                        bindingView.sharpProrange.setText(MyTools.initTvQuota(sharp.t.getStartAmount(), sharp.t.getEndAmount()));
+                        bindingView.sharpProlable.setText(sharp.t.getProductLabel());
+
+                        getActivity().findViewById(R.id.sharp_product).setOnClickListener(view -> {
+                            isLoginToWeb(initBundle(sharp.t.getId()+"",sharp.t.getUrl(),sharp.t.getName(),0));
+                        });
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                bindingView.swipeContainer.finishRefresh();
+                bindingView.emptyLayout.setErrorType(EmptyLayout.NO_ERROR);
+                break;
             case GET_PRODUCT_HOT:
                 try {
                     if (requestResult.isSuccess()) {
                         mHotList = (List<ServerModelList>)requestResult.getResultList();
                         hotSectionList = new ArrayList<>();
-                        hotSectionList.add(new RecommendSection(true, "热门", true));
+                        hotSectionList.add(new RecommendSection(true, "最新口子", false));
                         for (int i = 0; i < mHotList.size(); i++) {
                             hotSectionList.add(new RecommendSection(mHotList.get(i)));
                         }
@@ -282,8 +244,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
 
     @Override
     public void onRefresh(RefreshLayout refreshlayout) {
-        bindingView.topView.marqueeView.stopFlipping();
-        ServerApi.getProductHot(HomeFragment.this,mActivity);
+        ServerApi.getProductSharp(HomeFragment.this,mActivity);
         ServerApi.getBanner(mActivity,HomeFragment.this);
     }
 

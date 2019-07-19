@@ -10,6 +10,7 @@ public class RequestFlag {
     public static final int GET_BANNER = 1;//获取banner
     public static final int GET_PRODUCT_RECOMMEND = 2;//获取推荐产品
     public static final int GET_PRODUCT_HOT = 112;//获取热门产品
+    public static final int GET_PRODUCT_SHARP = 113;//获取热门产品
     public static final int GET_PRODUCT_TYPE = 3;//获取产品分类
     public static final int GET_FIND_PARAMETER = 4;//获取贷款参数
     public static final int GET_FIND_BY_TYPE = 5;//获取职业

@@ -2,6 +2,10 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
+    <color name="mainFontColor">#0078D7</color>
+    <color name="s1">#EF987C</color>
+    <color name="s2">#F5B867</color>
+    <color name="s3">#4DA1F7</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="tab_font_h">#F4412F</color><!-- 首页tab文字点亮颜色 -->

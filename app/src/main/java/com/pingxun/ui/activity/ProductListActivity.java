@@ -76,7 +76,6 @@ public class ProductListActivity extends BaseActivity<ActivityMyProductListBindi
         bindingView.smartRefreshLayout.setEnableHeaderTranslationContent(false);
         bindingView.smartRefreshLayout.setOnRefreshListener(this);
         bindingView.smartRefreshLayout.autoRefresh();
-        ServerApi.getZsType(ProductListActivity.this);
     }
 
 
