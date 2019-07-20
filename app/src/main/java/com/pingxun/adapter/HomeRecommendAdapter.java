@@ -43,44 +43,12 @@ public class HomeRecommendAdapter extends BaseSectionQuickAdapter<RecommendSecti
     @Override
     protected void convert(BaseViewHolder helper, RecommendSection item) {
         ServerModelList dataBean = item.t;
-        GlideImgManager.glideLoader(mContext, dataBean.getImg(), R.mipmap.img_default, R.mipmap.img_default, (ImageView) helper.getView(R.id.iv), 1);
+        GlideImgManager.glideLoader(mContext, dataBean.getImg(), R.mipmap.img_default, R.mipmap.img_default, (ImageView) helper.getView(R.id.it_product_icon), 0);
 
-        helper.setText(R.id.tv_title, dataBean.getName());
-        helper.setText(R.id.tv_edu, MyTools.initTvQuota(dataBean.getStartAmount(), dataBean.getEndAmount()));
-        helper.setText(R.id.tv_qixian, String.valueOf(dataBean.getStartPeriod())+"~"+ String.valueOf(dataBean.getEndPeriod())+dataBean.getPeriodType());
-        helper.setText(R.id.tv_lilv_danwei,dataBean.getPeriodType() + "利率");
-        helper.setText(R.id.tv_lilv, String.valueOf(dataBean.getServiceRate()) + "%");
-        SpannableString spannableString = new SpannableString("申请人数"+ String.valueOf(dataBean.getClickNum())+"人");
-        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#FF0000")), 4,spannableString.length()-1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        helper.setText(R.id.tv_apply_num, spannableString);
-
-        if (dataBean.getIsRecommend() == 1) {
-            helper.setVisible(R.id.iv_tuijian, true);
-        } else {
-            helper.setVisible(R.id.iv_tuijian, false);
-        }
-
-        FluidLayout flowLayout = helper.getView(R.id.flow_layout);
-        flowLayout.removeAllViews();
-        String[] sLabel;
-        if (!TextUtils.isEmpty(dataBean.getProductLabel())) {
-            sLabel = dataBean.getProductLabel().split(";");
-            for (int i = 0; i < sLabel.length; i++) {
-                final TextView textView = new TextView(mContext);
-                //设置textView  start
-                textView.setText(sLabel[i]);
-                textView.setPadding(DensityUtils.dip2px(mContext, 20), DensityUtils.dip2px(mContext, 2), DensityUtils.dip2px(mContext, 20), DensityUtils.dip2px(mContext, 2));
-                textView.setGravity(Gravity.CENTER);
-                textView.setTextSize(12);
-                textView.setBackgroundResource(R.drawable.shap_tag);
-                //设置textView  end
-
-                FluidLayout.LayoutParams params = new FluidLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                params.setMargins(12, 0, 0, 12);
-                flowLayout.addView(textView, params);
-            }
-        }
-
-
+        helper.setText(R.id.it_product_name, dataBean.getName());
+        helper.setText(R.id.it_product_range, MyTools.initTvQuota(dataBean.getStartAmount(), dataBean.getEndAmount()));
+        helper.setText(R.id.it_product_rate_unit,dataBean.getPeriodType() + "利率");
+        helper.setText(R.id.it_product_range, String.valueOf(dataBean.getServiceRate()) + "%");
+        helper.setText(R.id.it_product_label, dataBean.getProductLabel());
     }
 }

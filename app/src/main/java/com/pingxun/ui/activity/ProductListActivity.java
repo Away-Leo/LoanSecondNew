@@ -71,8 +71,6 @@ public class ProductListActivity extends BaseActivity<ActivityMyProductListBindi
     protected void initData() {
         initAdapter();
         bindingView.tvMessageTip.setText(InitDatas.messageTip);
-        bindingView.ivTopviewBack.setOnClickListener(this);
-        bindingView.tvType.setOnClickListener(this);
         bindingView.smartRefreshLayout.setEnableHeaderTranslationContent(false);
         bindingView.smartRefreshLayout.setOnRefreshListener(this);
         bindingView.smartRefreshLayout.autoRefresh();
@@ -88,7 +86,7 @@ public class ProductListActivity extends BaseActivity<ActivityMyProductListBindi
         notNetView = getLayoutInflater().inflate(R.layout.view_notnet, (ViewGroup) bindingView.rv.getParent(), false);
 
         bindingView.rv.setLayoutManager(new LinearLayoutManager(App.getAppContext()));
-        mAdapter = new ProductListAdapter(R.layout.rv_item_product_style_one, mList);
+        mAdapter = new ProductListAdapter(R.layout.activity_my_product_list_one, mList);
         mAdapter.setOnLoadMoreListener(this, bindingView.rv);
         mAdapter.openLoadAnimation(new CustomAnimation());
 
@@ -109,44 +107,12 @@ public class ProductListActivity extends BaseActivity<ActivityMyProductListBindi
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_topview_back:
-                finish();
-                break;
-            case R.id.tv_type:
-                mListPopup.setPopupWindowFullScreen(true);
-                mListPopup.showPopupWindow(bindingView.ivTopviewBack);
-                break;
-        }
     }
 
 
     @Override
     public void onResult(RequestResult requestResult, String jsonStr, int flag) {
         switch (flag) {
-            case GET_ZS_TYPE:
-                try {
-                    if (requestResult.isSuccess()) {
-                        mTypeList = (List<ServerModelList>) requestResult.getResultList();
-                        ListPopup.Builder builder = new ListPopup.Builder(me);
-                        for (int i = 0; i < mTypeList.size(); i++) {
-                            builder.addItem(mTypeList.get(i).getName());
-                        }
-                        mListPopup = builder.build();
-                        bindingView.tvType.setEnabled(true);
-                        mListPopup.setOnListPopupItemClickListener(position -> {
-                            bindingView.tvType.setText(mTypeList.get(position).getName());
-                            zsType=mTypeList.get(position).getCode();
-                            bindingView.smartRefreshLayout.autoRefresh();
-                            mListPopup.dismiss();
-                        });
-                    } else {
-                        bindingView.tvType.setEnabled(false);
-                    }
-                } catch (Exception e) {
-                    bindingView.tvType.setEnabled(false);
-                }
-                break;
 
             case REFRESH://下拉刷新返回数据的回调
                 try {
@@ -192,7 +158,6 @@ public class ProductListActivity extends BaseActivity<ActivityMyProductListBindi
 
     @Override
     public void onError(int i) {
-        bindingView.tvType.setEnabled(false);
         mAdapter.setNewData(null);
         bindingView.smartRefreshLayout.finishRefresh();
         if (NetUtil.getNetWorkState(App.getAppContext()) == -1) {

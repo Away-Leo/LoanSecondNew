@@ -9,43 +9,18 @@
 
         <RelativeLayout
             style="@style/MatchWrap"
-            android:background="@color/tab_font_bright">
-
-            <RelativeLayout
-                android:id="@+id/iv_topview_back"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
-
-                <ImageView
-                    style="@style/WrapWrap"
-                    android:layout_marginStart="10dp"
-                    android:background="@mipmap/icon_back"
-                    tools:ignore="ContentDescription"/>
-
-            </RelativeLayout>
+            android:background="@color/white">
 
             <TextView
                 android:id="@+id/tv_topview_title"
                 style="@style/WrapWrap"
                 android:layout_centerInParent="true"
                 android:text="@string/home_tab_product"
-                android:textColor="@color/white"
+                android:textColor="@color/mainShowColor"
                 android:textSize="18sp"/>
 
-            <TextView
-                android:id="@+id/tv_type"
-                style="@style/WrapWrap.Vertical"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:drawableEnd="@mipmap/icon_down_arrow_white"
-                android:enabled="false"
-                android:padding="10dp"
-                android:text="@string/synthesize_index"
-                android:textColor="@color/white"/>
         </RelativeLayout>
-
+        <include layout="@layout/line_vertical_1dp"/>
 
         <TextView
             android:id="@+id/tv_message_tip"

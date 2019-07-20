@@ -7,9 +7,11 @@
     <color name="s2">#F5B867</color>
     <color name="s3">#4DA1F7</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="mainShowColor">#232122</color>
+    <color name="grayText">#A09FA7</color>
 
-    <color name="tab_font_h">#F4412F</color><!-- 首页tab文字点亮颜色 -->
-    <color name="tab_font_bright">#F4412F</color><!-- 主色调 -->
+    <color name="tab_font_h">#009BD9</color><!-- 首页tab文字点亮颜色 -->
+    <color name="tab_font_bright">#FFFFFF</color><!-- 主色调 -->
     <color name="tab_font_bright50">#44412F33</color><!-- 主色调半透明 -->
 
 </resources>

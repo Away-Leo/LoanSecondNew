@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.pingxun.activity.R;
+import com.pingxun.activity.databinding.ActivityMyProductListBinding;
 import com.pingxun.adapter.ProductListAdapter;
 import com.pingxun.base.App;
 import com.pingxun.base.BaseFragment;
 import com.pingxun.data.ProductListMoreBean;
-import com.pingxun.activity.databinding.ActivityMyProductListBinding;
 import com.pingxun.http.ServerApi;
 import com.pingxun.other.InitDatas;
 import com.pingxundata.answerliu.pxcore.data.ServerModelList;
@@ -68,11 +68,6 @@ public class ProductListFragment extends BaseFragment<ActivityMyProductListBindi
     protected void initData() {
         initAdapter();
         bindingView.tvMessageTip.setText(InitDatas.messageTip);
-        bindingView.ivTopviewBack.setVisibility(View.GONE);
-        bindingView.tvType.setOnClickListener(view -> {
-            mListPopup.setPopupWindowFullScreen(true);
-            mListPopup.showPopupWindow(bindingView.ivTopviewBack);
-        });
         bindingView.smartRefreshLayout.setEnableHeaderTranslationContent(false);
         bindingView.smartRefreshLayout.setOnRefreshListener(this);
         bindingView.smartRefreshLayout.autoRefresh();
@@ -93,7 +88,7 @@ public class ProductListFragment extends BaseFragment<ActivityMyProductListBindi
         notNetView = getLayoutInflater().inflate(R.layout.view_notnet, (ViewGroup) bindingView.rv.getParent(), false);
 
         bindingView.rv.setLayoutManager(new LinearLayoutManager(App.getAppContext()));
-        mAdapter = new ProductListAdapter(R.layout.rv_item_product_style_one, mList);
+        mAdapter = new ProductListAdapter(R.layout.activity_my_product_list_one, mList);
         mAdapter.setOnLoadMoreListener(this, bindingView.rv);
         mAdapter.openLoadAnimation(new CustomAnimation());
 
@@ -115,29 +110,6 @@ public class ProductListFragment extends BaseFragment<ActivityMyProductListBindi
     @Override
     public void onResult(RequestResult requestResult, String jsonStr, int flag) {
         switch (flag) {
-            case GET_ZS_TYPE:
-                try {
-                    if (requestResult.isSuccess()) {
-                        mTypeList = (List<ServerModelList>) requestResult.getResultList();
-                        ListPopup.Builder builder = new ListPopup.Builder(getActivity());
-                        for (int i = 0; i < mTypeList.size(); i++) {
-                            builder.addItem(mTypeList.get(i).getName());
-                        }
-                        mListPopup = builder.build();
-                        bindingView.tvType.setEnabled(true);
-                        mListPopup.setOnListPopupItemClickListener(position -> {
-                            bindingView.tvType.setText(mTypeList.get(position).getName());
-                            zsType=mTypeList.get(position).getCode();
-                            bindingView.smartRefreshLayout.autoRefresh();
-                            mListPopup.dismiss();
-                        });
-                    } else {
-                        bindingView.tvType.setEnabled(false);
-                    }
-                } catch (Exception e) {
-                    bindingView.tvType.setEnabled(false);
-                }
-                break;
 
             case REFRESH://下拉刷新返回数据的回调
                 try {
@@ -185,7 +157,6 @@ public class ProductListFragment extends BaseFragment<ActivityMyProductListBindi
 
     @Override
     public void onError(int flag) {
-        bindingView.tvType.setEnabled(false);
         mAdapter.setNewData(null);
         bindingView.smartRefreshLayout.finishRefresh();
         if (NetUtil.getNetWorkState(App.getAppContext()) == -1) {
