@@ -27,30 +27,13 @@ public class ApplyListAdapter extends BaseQuickAdapter<ApplyListBean, BaseViewHo
 
     @Override
     protected void convert(BaseViewHolder helper, ApplyListBean item) {
-        helper.setText(R.id.tv_title, item.getProductName());
-        helper.setText(R.id.tv_edu, "额度  " + MyTools.initTvQuota(item.getStartAmount(), item.getEndAmount()));
-        helper.setText(R.id.tv_lilv, item.getPeriodType() + "利率  " + String.valueOf(item.getServiceRate()) + "%");
-        GlideImgManager.glideLoader(mContext, item.getImg(), R.mipmap.img_default, R.mipmap.img_default, (ImageView) helper.getView(R.id.iv), 1);
+        GlideImgManager.glideLoader(mContext, item.getImg(), R.mipmap.img_default, R.mipmap.img_default, (ImageView) helper.getView(R.id.it_product_icon), 0);
 
-//        FluidLayout flowLayout = helper.getView(R.id.flow_layout);
-//        flowLayout.removeAllViews();
-//        String[] sLabel;
-//        if (!TextUtils.isEmpty(item.getProductLabel())) {
-//            sLabel = item.getProductLabel().split(";");
-//            for (int i = 0; i < sLabel.length; i++) {
-//                final TextView view = new TextView(mContext);
-//                view.setText(sLabel[i]);
-//                view.setPadding(DensityUtils.dip2px(mContext, 20), DensityUtils.dip2px(mContext, 2), DensityUtils.dip2px(mContext, 20), DensityUtils.dip2px(mContext, 2));
-//                view.setGravity(Gravity.CENTER);
-//                view.setTextSize(12);
-//                view.setBackgroundResource(R.drawable.shap_tag);
-//                FluidLayout.LayoutParams params = new FluidLayout.LayoutParams(
-//                        ViewGroup.LayoutParams.WRAP_CONTENT,
-//                        ViewGroup.LayoutParams.WRAP_CONTENT);
-//                params.setMargins(0, 0, DensityUtils.dip2px(mContext, 20), 0);
-//                flowLayout.addView(view, params);
-//            }
-//        }
+        helper.setText(R.id.it_product_name, item.getProductName());
+        helper.setText(R.id.it_product_range, MyTools.initTvQuota(item.getStartAmount(), item.getEndAmount()));
+        helper.setText(R.id.it_product_rate_unit,item.getPeriodType() + "利率");
+        helper.setText(R.id.it_product_range, String.valueOf(item.getServiceRate()) + "%");
+        helper.setVisible(R.id.it_product_label, false);
     }
 
 

@@ -110,7 +110,7 @@
                                 android:layout_marginTop="10dp"
                                 android:gravity="center_horizontal"
                                 android:text="1000~2000元"
-                                android:textColor="@color/tab_font_bright"
+                                android:textColor="@color/colorAccent"
                                 android:textSize="25sp" />
                             <TextView
                                 android:id="@+id/sharp_prolable"
@@ -135,7 +135,7 @@
                         </LinearLayout>
                     </LinearLayout>
                     <include layout="@layout/line_vertical_10dp"/>
-
+                    
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv_hot"
                         style="@style/MatchWrap"/>

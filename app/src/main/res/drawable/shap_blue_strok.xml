@@ -4,16 +4,10 @@
       android:radius="10dp">
     </corners>
     <stroke
-        android:width="0dp"
+        android:width="1dp"
         android:color="@color/mainFontColor">
     </stroke>
     <solid
-        android:color="@color/s2">
+        android:color="@color/mainFontColor">
     </solid>
-    <!--<gradient
-        android:angle="135"
-        android:centerColor="#F3B665"
-        android:endColor="#F4B163"
-        android:startColor="#F1FFE5"
-        android:type="linear"/>-->
 </shape>

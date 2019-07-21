@@ -10,10 +10,11 @@
     <solid
         android:color="@color/s1">
     </solid>
-    <gradient
+    <!--渐变-->
+    <!--<gradient
         android:angle="45"
         android:centerColor="#F28E77"
         android:endColor="#EF9A7B"
         android:startColor="#F1FFE5"
-        android:type="linear"/>
+        android:type="linear"/>-->
 </shape>

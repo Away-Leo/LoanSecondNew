@@ -4,8 +4,7 @@
         xmlns:wave="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        style="@style/MatchMatch.Vertical"
-        android:background="@color/main_bg">
+        style="@style/MatchMatch.Vertical">
 
 
         <android.support.v4.widget.SwipeRefreshLayout
@@ -19,68 +18,91 @@
 
                 <LinearLayout
                     style="@style/MatchWrap.Vertical">
-
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/dp_10"
+                            android:background="@color/tab_font_h"
+                            android:textColor="@color/white"
+                            android:fontFamily="serif"
+                            android:gravity="center"
+                            android:text="我 的"/>
+                    </LinearLayout>
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="160dp"
-                        android:background="@mipmap/mine_bac_new">
-
-                        <LinearLayout
-                            android:id="@+id/mine_login"
-                            style="@style/WrapWrap.Horizontal"
-                            android:layout_centerVertical="true"
-                            tools:ignore="UseCompoundDrawables">
-
-                            <ImageView
-                                android:id="@+id/iv_head"
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_marginStart="30dp"
-                                android:src="@mipmap/mine_ico"
-                                tools:ignore="ContentDescription"/>
-
-                            <TextView
-                                android:id="@+id/tv_name"
-                                style="@style/WrapWrap"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="10dp"
-                                android:textColor="@color/black"
-                                android:textSize="18sp"
-                                tools:text="13101205180"/>
-                        </LinearLayout>
-
+                        android:background="@color/tab_font_h">
 
                         <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="16dp"
+                            android:layout_height="120dp"
                             android:layout_alignParentBottom="true">
 
                             <com.pingxun.ui.view.WaveViewBySinCos
                                 android:id="@+id/wave_sin"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                wave:waveAmplitude="4dp"
-                                wave:waveColor="#50ffffff"
+                                wave:waveAmplitude="20dp"
+                                wave:waveColor="#30ffffff"
                                 wave:waveFillType="bottom"
-                                wave:waveSpeed="1.5"
+                                wave:waveSpeed="0.5"
                                 wave:waveStart="true"
                                 wave:waveStartPeriod="1"
                                 wave:waveType="sin" />
-
                             <com.pingxun.ui.view.WaveViewBySinCos
                                 android:id="@+id/wave_sin2"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                wave:waveAmplitude="6dp"
-                                wave:waveColor="@color/white"
+                                wave:waveAmplitude="8dp"
+                                wave:waveColor="#15ffffff"
+                                wave:waveFillType="bottom"
+                                wave:waveSpeed="1"
+                                wave:waveStart="true"
+                                wave:waveStartPeriod="2"
+                                wave:waveType="sin" />
+                            <com.pingxun.ui.view.WaveViewBySinCos
+                                android:id="@+id/wave_sin3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                wave:waveAmplitude="30dp"
+                                wave:waveColor="#20ffffff"
                                 wave:waveFillType="bottom"
                                 wave:waveSpeed="1.5"
                                 wave:waveStart="true"
-                                wave:waveStartPeriod="1"
+                                wave:waveStartPeriod="6"
                                 wave:waveType="sin" />
-
                         </FrameLayout>
 
+                        <FrameLayout
+                            android:id="@+id/mine_login"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:background="@drawable/up_corner"
+                            android:layout_alignParentBottom="true"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <TextView
+                                android:id="@+id/tv_name"
+                                style="@style/WrapWrap"
+                                android:layout_gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_marginTop="@dimen/dp_10"
+                                android:textSize="18sp"
+                                tools:text="13101205180"/>
+                        </FrameLayout>
+                        <ImageView
+                            android:id="@+id/iv_head"
+                            android:layout_width="80dp"
+                            android:layout_marginTop="40dp"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="80dp"
+                            android:src="@mipmap/touxiang"
+                            tools:ignore="ContentDescription"/>
                     </RelativeLayout>
 
 
@@ -90,7 +112,6 @@
                     <RelativeLayout
                         android:id="@+id/mine_apply"
                         style="@style/WrapWrap"
-                        android:background="@drawable/ripple_bg"
                         android:paddingBottom="6dp"
                         android:paddingTop="10dp">
 
@@ -99,7 +120,7 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginStart="20dp"
-                            android:background="@mipmap/icon_apply"
+                            android:background="@mipmap/ver"
                             tools:ignore="ContentDescription"/>
 
                         <TextView
@@ -125,22 +146,20 @@
 
                     </RelativeLayout>
 
-                    <include layout="@layout/line_vertical_1dp"/>
 
                     <!--关于我们 -->
                     <RelativeLayout
                         android:id="@+id/mine_about_us"
                         style="@style/WrapWrap"
-                        android:background="@drawable/ripple_bg"
                         android:paddingBottom="6dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="15dp">
 
                         <ImageView
                             android:id="@+id/iv2"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginStart="20dp"
-                            android:background="@mipmap/icon_about_us"
+                            android:background="@mipmap/suo"
                             tools:ignore="ContentDescription"/>
 
                         <TextView
@@ -170,17 +189,15 @@
                     <RelativeLayout
                         android:id="@+id/mine_contact_us"
                         style="@style/WrapWrap"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/ripple_bg"
-                        android:paddingBottom="6dp"
-                        android:paddingTop="10dp">
+                        android:layout_marginTop="15dp"
+                        android:paddingBottom="6dp">
 
                         <ImageView
                             android:id="@+id/iv4"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginStart="20dp"
-                            android:background="@mipmap/icon_contact_us"
+                            android:background="@mipmap/qingli"
                             tools:ignore="ContentDescription"/>
 
                         <TextView
@@ -205,7 +222,6 @@
 
                     </RelativeLayout>
 
-                    <include layout="@layout/line_vertical_1dp"/>
 
                     <!--版本号-->
                     <RelativeLayout
@@ -213,14 +229,14 @@
                         style="@style/MatchWrap"
                         android:background="@color/white"
                         android:paddingBottom="6dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="15dp">
 
                         <ImageView
                             android:id="@+id/iv5"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginStart="20dp"
-                            android:background="@mipmap/icon_version"
+                            android:background="@mipmap/lianxi"
                             tools:ignore="ContentDescription"/>
 
                         <TextView
@@ -245,10 +261,10 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
-                        android:background="@drawable/shap_quit_login"
+                        android:background="@drawable/shap_blue_strok"
                         android:gravity="center"
                         android:text="@string/quit_login"
-                        android:textColor="#333"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
                         android:typeface="serif"
                         android:visibility="gone"

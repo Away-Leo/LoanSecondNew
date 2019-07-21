@@ -50,7 +50,7 @@ public class ServerApi {
      */
     public static void getBanner(Context context, PXHttp.OnResultHandler handler) {
         Map<String, String> params = new HashMap<>();
-        params.put("position", InitDatas.APP_NAME + "_android_center");
+        params.put("position", InitDatas.APP_NAME + "_HomePage_TopBanner");
         params.put("versionNo", InitDatas.APP_NAME + AppUtils.getVersionCode(context));
         PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_BANNER, params, GET_BANNER, ServerModelList.class);
 

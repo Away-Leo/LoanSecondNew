@@ -178,7 +178,7 @@ public abstract class BaseFragment<SV extends ViewDataBinding> extends Fragment 
         }
         mBundle.putString("channelNo",InitDatas.CHANNEL_NO);
         mBundle.putInt("backImg", R.mipmap.icon_back);
-        mBundle.putInt("titleColor", Color.WHITE);
+        mBundle.putInt("titleColor", R.color.black);
         mBundle.putInt("topBack", R.color.tab_font_bright);
         return mBundle;
     }

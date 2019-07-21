@@ -74,7 +74,7 @@ public class ApplyListActivity extends BaseActivity<ActivityApplyListBinding> im
         errorView = getLayoutInflater().inflate(R.layout.view_error, (ViewGroup) bindingView.rv.getParent(), false);
         notNetView = getLayoutInflater().inflate(R.layout.view_notnet, (ViewGroup) bindingView.rv.getParent(), false);
 
-        mAdapter = new ApplyListAdapter(R.layout.rv_item_product_style_one, mApplyList);
+        mAdapter = new ApplyListAdapter(R.layout.activity_my_product_list_one, mApplyList);
         mAdapter.setOnLoadMoreListener(this, bindingView.rv);
         mAdapter.openLoadAnimation(new CustomAnimation());
         bindingView.rv.setAdapter(mAdapter);

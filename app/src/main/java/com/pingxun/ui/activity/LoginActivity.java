@@ -6,6 +6,7 @@ import com.pingxun.activity.R;
 import com.pingxun.base.App;
 import com.pingxun.base.BaseActivity;
 import com.pingxun.http.ServerApi;
+import com.pingxun.other.GetResourcesUtils;
 import com.pingxun.other.InitDatas;
 import com.pingxundata.answerliu.pxcore.databinding.ActivityLoginBinding;
 import com.pingxundata.answerliu.pxcore.other.Constant;
@@ -49,6 +50,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
             bindingView.edPhone.setSelection(bindingView.edPhone.getText().length());//将光标移到末尾
         }
         initListener();
+        bindingView.btnLogin.setBackground(getDrawable(GetResourcesUtils.getDrawableId(this, "shap_blue_strok")));
+
     }
 
     private void initListener() {

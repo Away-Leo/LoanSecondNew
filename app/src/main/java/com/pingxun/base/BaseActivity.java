@@ -107,6 +107,7 @@ public abstract class BaseActivity<SV extends ViewDataBinding> extends AppCompat
     public void initTopView(String titleStr) {
         RelativeLayout back = (RelativeLayout)findViewById(R.id.iv_topview_back);
         TextView title = (TextView) findViewById(R.id.tv_topview_title);
+        title.setTextColor(getResources().getColor(R.color.black));
         if (back != null) {
             back.setOnClickListener(new View.OnClickListener() {
                 @Override
