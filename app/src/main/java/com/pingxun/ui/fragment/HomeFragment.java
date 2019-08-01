@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.adapter.HomeHotAdapter;
 import com.pingxun.adapter.HomeMultipleItemAdapter;
 import com.pingxun.adapter.HomeRecommendAdapter;
@@ -24,7 +24,7 @@ import com.pingxun.adapter.HomeSharpAdapter;
 import com.pingxun.base.BaseFragment;
 import com.pingxun.data.HomeMultipleItem;
 import com.pingxun.data.RecommendSection;
-import com.pingxun.activity.databinding.FragmentHomeBinding;
+import com.dbhh.bigwhiteflowers.databinding.FragmentHomeBinding;
 import com.pingxun.http.ServerApi;
 import com.pingxun.other.InitDatas;
 import com.pingxun.other.RequestFlag;
@@ -68,7 +68,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
     private List<RecommendSection> recommendSectionList;
     private List<RecommendSection> hotSectionList;
     private List<RecommendSection> sharpSectionList;
-    private List<ServerModelList> mBannerList, mRecommendList,mHotList,mSharpList;
+    private List<SpannableString> mStringList = new ArrayList<>();
+    private List<ServerModelList> mBannerList, mRecommendList,mHotList,mSharpList,mHeadLinesList;
 
     @Override
     protected int getRootLayoutResID() {
@@ -145,6 +146,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
                 }
             }
         });
+        ServerApi.getHeadlines(this);
     }
 
     @Override
@@ -173,6 +175,27 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
                     }
                 }catch (Exception e){}
                 //获取热门产品
+                break;
+            case GET_HEAD_LINES://头条
+                try {
+                    if (requestResult.isSuccess()) {
+                        mHeadLinesList = (List<ServerModelList>)requestResult.getResultList();
+                        mStringList.clear();
+                        for (int i = 0; i < mHeadLinesList.size(); i++) {
+                            String s1 = mHeadLinesList.get(i).getPhone();
+                            String s2 = mHeadLinesList.get(i).getName();
+                            String s3 = MyTools.addComma(String.valueOf(mHeadLinesList.get(i).getApplyAmount()));
+                            SpannableString spannableString = new SpannableString(s1 + "成功通过" + s2 + "贷到" + s3 + "元");
+                            ForegroundColorSpan colorSpan1 = new ForegroundColorSpan(Color.parseColor("#FF0000"));
+                            ForegroundColorSpan colorSpan2 = new ForegroundColorSpan(Color.parseColor("#FF0000"));
+                            spannableString.setSpan(colorSpan1, s1.length()+4, spannableString.length() - (s3.length() + 3), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            spannableString.setSpan(colorSpan2, spannableString.length() - (s3.length() + 1), spannableString.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            mStringList.add(spannableString);
+                        }
+                        bindingView.topHeadView.marqueeView.startWithList(mStringList);
+                        bindingView.topHeadView.marqueeView.startFlipping();
+                    }
+                } catch (Exception e) {}
                 break;
             case GET_PRODUCT_RECOMMEND://热门推荐
                 try {
@@ -244,6 +267,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements P
 
     @Override
     public void onRefresh(RefreshLayout refreshlayout) {
+        bindingView.topHeadView.marqueeView.stopFlipping();
         ServerApi.getProductSharp(HomeFragment.this,mActivity);
         ServerApi.getBanner(mActivity,HomeFragment.this);
     }

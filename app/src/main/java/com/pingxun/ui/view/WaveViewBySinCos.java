@@ -11,7 +11,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 
 
 /**

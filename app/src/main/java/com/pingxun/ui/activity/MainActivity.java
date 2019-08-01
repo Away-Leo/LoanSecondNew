@@ -13,8 +13,9 @@ import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.orhanobut.logger.Logger;
-import com.pingxun.activity.R;
-import com.pingxun.activity.databinding.UiHomeBinding;
+import com.dbhh.bigwhiteflowers.R;
+//import com.dbhh.bigwhiteflowers.databinding.UiHomeBinding;
+import com.dbhh.bigwhiteflowers.databinding.UiHomeBinding;
 import com.pingxun.base.App;
 import com.pingxun.base.BaseActivity;
 import com.pingxun.other.InitDatas;

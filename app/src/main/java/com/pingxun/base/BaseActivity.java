@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lzy.okgo.OkGo;
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxundata.pxcore.absactivitys.PXRecommendActivity;
 import com.pingxundata.pxcore.absactivitys.PXSimpleWebViewActivity;
 import com.pingxundata.pxcore.applications.BaseApplication;

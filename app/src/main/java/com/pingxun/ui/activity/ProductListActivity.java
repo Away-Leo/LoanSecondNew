@@ -1,6 +1,5 @@
 package com.pingxun.ui.activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,15 +8,14 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
+import com.dbhh.bigwhiteflowers.databinding.ActivityMyProductListBinding;
 import com.pingxun.adapter.ProductListAdapter;
 import com.pingxun.base.App;
 import com.pingxun.base.BaseActivity;
 import com.pingxun.data.ProductListMoreBean;
-import com.pingxun.activity.databinding.ActivityMyProductListBinding;
 import com.pingxun.http.ServerApi;
 import com.pingxun.other.InitDatas;
-import com.pingxundata.answerliu.pxcore.data.ProductListBean;
 import com.pingxundata.answerliu.pxcore.data.ServerModelList;
 import com.pingxundata.answerliu.pxcore.other.Constant;
 import com.pingxundata.answerliu.pxcore.other.CustomAnimation;
@@ -35,7 +33,6 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.List;
 
-import static com.pingxun.other.RequestFlag.GET_ZS_TYPE;
 import static com.pingxun.other.RequestFlag.LOADMORE;
 import static com.pingxun.other.RequestFlag.REFRESH;
 

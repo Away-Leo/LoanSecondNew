@@ -3,7 +3,7 @@ package com.pingxun.ui.activity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.base.App;
 import com.pingxun.base.BaseActivity;
 import com.pingxun.http.ServerApi;

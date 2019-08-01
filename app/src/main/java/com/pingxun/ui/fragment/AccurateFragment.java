@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.base.BaseFragment;
-import com.pingxun.activity.databinding.FragmentAccurateBinding;
+import com.dbhh.bigwhiteflowers.databinding.FragmentAccurateBinding;
 import com.pingxun.http.ServerApi;
 import com.pingxun.other.InitDatas;
 import com.pingxun.ui.activity.ProductListActivity;

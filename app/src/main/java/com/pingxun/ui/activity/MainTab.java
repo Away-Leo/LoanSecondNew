@@ -1,7 +1,7 @@
 package com.pingxun.ui.activity;
 
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.ui.fragment.AccurateFragment;
 import com.pingxun.ui.fragment.CreditCardFragment;
 import com.pingxun.ui.fragment.HomeFragment;

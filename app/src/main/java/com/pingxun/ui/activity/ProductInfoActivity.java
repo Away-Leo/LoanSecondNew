@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.base.App;
 import com.pingxun.http.ServerApi;
 import com.pingxun.other.InitDatas;

@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.data.HomeMultipleItem;
 import com.pingxundata.pxmeta.utils.GlideImgManager;
 

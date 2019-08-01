@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.base.App;
 import com.pingxun.other.InitDatas;
 import com.pingxun.service.LoginService;
