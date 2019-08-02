@@ -4,9 +4,9 @@ import android.annotation.SuppressLint;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.base.BaseFragment;
-import com.pingxun.activity.databinding.FragmentMineBinding;
+import com.dbhh.bigwhiteflowers.databinding.FragmentMineBinding;
 import com.pingxun.other.InitDatas;
 import com.pingxun.ui.activity.AboutUsActivity;
 import com.pingxun.ui.activity.ApplyListActivity;

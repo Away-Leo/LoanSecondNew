@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseSectionQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.data.RecommendSection;
 import com.pingxundata.answerliu.pxcore.data.ServerModelList;
 import com.pingxundata.pxmeta.utils.GlideImgManager;

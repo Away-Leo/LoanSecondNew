@@ -51,7 +51,7 @@ public class ServerApi {
     public static void getBanner(Context context, PXHttp.OnResultHandler handler) {
         Map<String, String> params = new HashMap<>();
         params.put("position", InitDatas.APP_NAME + "_HomePage_TopBanner");
-        params.put("versionNo", InitDatas.APP_NAME + AppUtils.getVersionCode(context));
+//        params.put("versionNo", InitDatas.APP_NAME + AppUtils.getVersionCode(context));
         PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_BANNER, params, GET_BANNER, ServerModelList.class);
 
     }
@@ -65,6 +65,13 @@ public class ServerApi {
 //        params.put("appName", InitDatas.APP_NAME);
 //        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_PRODUCT_TYPE, params, GET_PRODUCT_TYPE,ServerModelList.class);
 //    }
+
+    /**
+     * 获取头条
+     */
+    public static void getHeadlines(PXHttp.OnResultHandler handler) {
+        PXHttp.getInstance().setHandleInterface(handler).getJson(Urls.URL_GET_HEAD_LINES, null, GET_HEAD_LINES,ServerModelList.class);
+    }
 
     /**
      * 获取热门推荐产品

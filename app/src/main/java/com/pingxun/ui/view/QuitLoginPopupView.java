@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.widget.TextView;
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.other.InitDatas;
 import com.pingxun.other.Urls;
 import com.pingxundata.answerliu.pxcore.data.LoginBean;

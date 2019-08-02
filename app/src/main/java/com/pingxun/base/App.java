@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.other.InitDatas;
 import com.pingxundata.pxcore.applications.BaseApplication;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;

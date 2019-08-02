@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.adapter.ProductListAdapter;
 import com.pingxun.base.App;
 import com.pingxun.base.BaseFragment;

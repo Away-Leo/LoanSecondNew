@@ -8,7 +8,7 @@ import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.data.CreditCardBean;
 import com.pingxundata.pxmeta.utils.GlideImgManager;
 

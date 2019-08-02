@@ -8,13 +8,13 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.adapter.BankAdapter;
 import com.pingxun.adapter.CreditCardAdapter;
 import com.pingxun.base.App;
 import com.pingxun.base.BaseFragment;
 import com.pingxun.data.CreditCardBean;
-import com.pingxun.activity.databinding.FragmentCreditCardBinding;
+import com.dbhh.bigwhiteflowers.databinding.FragmentCreditCardBinding;
 import com.pingxun.http.ServerApi;
 import com.pingxun.other.InitDatas;
 import com.pingxun.other.RequestFlag;

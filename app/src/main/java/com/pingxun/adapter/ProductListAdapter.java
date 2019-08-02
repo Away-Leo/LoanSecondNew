@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.data.ProductListMoreBean;
 import com.pingxundata.answerliu.pxcore.data.ProductListBean;
 import com.pingxundata.answerliu.pxcore.view.FluidLayout;

@@ -17,7 +17,7 @@
                 android:visibility="gone"/>
 
             <com.pingxundata.answerliu.pxcore.view.MyNestedScrollView
-                android:layout_marginTop="106dp"
+                android:layout_marginTop="56dp"
                 style="@style/MatchWrap">
 
                 <LinearLayout
@@ -158,13 +158,7 @@
             android:orientation="vertical"
             android:background="@color/white"
             >
-
-            <ImageView
-                android:layout_width="180dp"
-                android:layout_marginLeft="20dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/dabai"/>
-            <include layout="@layout/common_tip_layout"/>
+            <include android:id="@+id/top_head_view" layout="@layout/common_tip_layout"/>
         </LinearLayout>
 
         <com.pingxundata.answerliu.pxcore.view.EmptyLayout

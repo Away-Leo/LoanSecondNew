@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.other.InitDatas;
 import com.pingxun.ui.activity.LoginActivity;
 import com.pingxun.ui.activity.ProductInfoActivity;

@@ -3,7 +3,7 @@ package com.pingxun.ui.activity;
 
 import android.annotation.SuppressLint;
 
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.base.App;
 import com.pingxun.base.BaseActivity;
 import com.pingxundata.answerliu.pxcore.databinding.ActivityAboutUsBinding;
@@ -18,6 +18,7 @@ public class AboutUsActivity extends BaseActivity<ActivityAboutUsBinding> {
     protected int getLayoutId() {
         return R.layout.activity_about_us;
     }
+
 
     @SuppressLint("SetTextI18n")
     @Override

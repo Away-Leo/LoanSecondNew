@@ -7,12 +7,12 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.pingxun.activity.R;
+import com.dbhh.bigwhiteflowers.R;
 import com.pingxun.adapter.StrategyListAdapter;
 import com.pingxun.adapter.StrategyTopAdapter;
 import com.pingxun.base.BaseFragment;
 import com.pingxun.data.RaidersListBean;
-import com.pingxun.activity.databinding.FragmentStrategyBinding;
+import com.dbhh.bigwhiteflowers.databinding.FragmentStrategyBinding;
 import com.pingxun.http.ServerApi;
 import com.pingxun.other.InitDatas;
 import com.pingxun.ui.activity.StrategyInfoActivity;
