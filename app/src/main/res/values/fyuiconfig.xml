@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 状态栏 -->
+    <!-- 状态栏颜色 -->
+    <color name="oauth_statusbar_color">#FFFFFF</color>
+    <!-- 授权页面背景图片 -->
+    <drawable name="oauth_background_img">@drawable/oauth_bg_img</drawable>
+    <!-- 导航栏属性配置 背景色-->
+    <color name="oauth_nav_color">#FFFFFF</color>
+    <!-- 标题颜色 -->
+    <color name="oauth_nav_title_color">#000000</color>
+    <!-- 标题文本 -->
+    <string name="oauth_nav_title">登  录</string>
+    <!-- 标题字体大小 -->
+    <dimen name="oauth_nav_title_size">18sp</dimen>
+    <!-- 左侧返回按钮图片 -->
+    <drawable name="oauth_nav_back_img">@drawable/icon_oauth_close</drawable>
+
+    <!-- logo -->
+    <!-- logo属性 宽 -->
+    <dimen name="oauth_logo_width">80dp</dimen>
+    <!--logo高度-->
+    <dimen name="oauth_logo_height">80dp</dimen>
+    <!--Y距离导航栏偏移量-->
+    <dimen name="oauth_logo_offsetY">120dp</dimen>
+    <!--logo图片 -->
+    <drawable name="oauth_logo_img">@mipmap/touxiang</drawable>
+
+
+    <!-- 脱敏手机号 -->
+    <!-- 脱敏手机号属性  字体颜色   -->
+    <color name="oauth_number_color">#000000</color>
+    <!--脱敏手机号属性 字体大小 -->
+    <dimen name="oauth_number_size">18sp</dimen>
+    <!-- 脱敏手机号属性  Y距离导航栏偏移量-->
+    <dimen name="oauth_number_offsetY">230dp</dimen>
+
+
+    <!--  slogan -->
+    <!--  slogan属性 字体颜色  -->
+    <color name="oauth_slogan_text_color">#8F8F8F</color>
+    <!-- slogan  Y距离导航栏偏移量-->
+    <dimen name="oauth_slogan_offsetY">255dp</dimen>
+
+
+    <!-- 登录按钮属性 -->
+    <!-- 登录按钮属性  文本颜色 -->
+    <color name="oauth_login_text_color">#ffffff</color>
+    <!--登录按钮属性 背景图片-->
+    <drawable name="oauth_login_btn_bg">@drawable/shap_blue_strok</drawable>
+    <!--登录按钮属性 文本-->
+    <string name="oauth_login_text">本机号码一键登录</string>
+    <!-- vY距离导航栏偏移量 -->
+    <dimen name="oauth_login_offsetY">285dp</dimen>
+
+    <!-- 其它登录方式属性  字体颜色 -->
+    <color name="oauth_other_login_text_color">#000000</color>
+    <!-- 其它登录方式属性  字体大小  -->
+    <dimen name="oauth_other_login_text_size">15sp</dimen>
+    <!--其它登录方式属性 Y距离登录按钮偏移量-->
+    <dimen name="oauth_other_login_offsetY">15dp</dimen>
+    <!--其它登录方式属性 文本-->
+    <string name="oauth_other_login">其他方式登录</string>
+
+    <!-- 协议 -->
+    <!-- 协议属性  复选框图片-->
+    <drawable name="agree_checked_img">@drawable/icon_oauth_select</drawable>
+    <drawable name="agree_unchecked_img">@drawable/icon_oauth_noselect</drawable>
+    <drawable name="oauth_agree_checkboxs">@drawable/check_box_select</drawable>
+    <!--协议颜色 -->
+    <color name="agree_provider_color">#4DA1F7</color>
+    <!--默认字体颜色，-->
+    <color name="agree_provider_default_color">#999999</color>
+    <!-- 飞验协议名称（可更换成自己的） 、号必须要-->
+    <string name="agree_provider_service_name">、信息服务与隐私保护协议</string>
+    <!--用户自定义协议名称   、号必须要-->
+    <string name="agree_customer_service_name"></string>
+    <!--<string name="agree_customer_service_name">、商户自定义协议</string>-->
+    <!--Y距离底部偏移量-->
+    <dimen name="agree_bottom_offsetY">15dp</dimen>
+
+    <!--电信协议弹窗主色-->
+    <color name="privacy_dialog_color">#FF0090FF</color>
+</resources>

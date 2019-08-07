@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'maven'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -11,6 +12,16 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs','src/main/jniLibs']
+        }
     }
     signingConfigs {
         release {
@@ -48,10 +59,10 @@ android {
             def fileName
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
                 if (variant.buildType.name.equals('release')) {
-                    fileName = "LoanSecondNew_v${defaultConfig.versionName}_appCode_${rootProject.ext.appCode}_versionCode_${defaultConfig.versionCode}.apk"
+                    fileName = "DaBai_v${defaultConfig.versionName}_appCode_${rootProject.ext.appCode}_versionCode_${defaultConfig.versionCode}.apk"
 //                    fileName = "LoanQianBao_v${defaultConfig.versionName}.apk"
                 } else if (variant.buildType.name.equals('debug')) {
-                    fileName = "LoanQianBao_v${defaultConfig.versionName}_debug.apk"
+                    fileName = "DaBai_v${defaultConfig.versionName}_debug.apk"
                 }
                 output.outputFile = new File(outputFile.parent, fileName)
             }
@@ -71,11 +82,13 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile(name:'XYOneKeyLogin-Android-1.2.0', ext:'aar')
 
 
     compile 'com.sunfusheng:marqueeview:1.3.1'//跑马灯
-    compile 'com.github.lh1250360307:PXCore:1.0.0.17'//包含v4，v7，recyclerview基础包;
+    compile 'com.yanzhenjie.permission:support:2.0.1'//跑马灯
+    compile ('com.github.lh1250360307:PXCore:1.0.0.17'){exclude group:'com.yanzhenjie'}
     //另添加了eventbus，glide，logger，BRVAH,下拉刷新SmartRefreshLayout，权限申请permission;
     //通用轮播图，引导页PXBanner,平讯工具类PXMetaLib
     compile 'com.github.Away-Leo:PXCore:1.1.5.1'//平讯核心包

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/oauth_loading_bg"
+    android:gravity="center"
+    >
+
+    <ImageView
+        android:id="@+id/icon_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/oauth_anim_loading_dialog" />
+
+    <TextView
+        android:id="@+id/tv_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="10dp"
+        android:text="正在登陆中，请勿退出"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="@color/button_text_color"
+        android:textSize="18sp"
+        android:visibility="visible" />
+</LinearLayout>

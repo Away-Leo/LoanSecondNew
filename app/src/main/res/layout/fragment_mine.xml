@@ -41,7 +41,7 @@
                             android:layout_height="120dp"
                             android:layout_alignParentBottom="true">
 
-                            <com.pingxun.ui.view.WaveViewBySinCos
+                            <com.dbhh.ui.view.WaveViewBySinCos
                                 android:id="@+id/wave_sin"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -52,7 +52,7 @@
                                 wave:waveStart="true"
                                 wave:waveStartPeriod="1"
                                 wave:waveType="sin" />
-                            <com.pingxun.ui.view.WaveViewBySinCos
+                            <com.dbhh.ui.view.WaveViewBySinCos
                                 android:id="@+id/wave_sin2"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -63,7 +63,7 @@
                                 wave:waveStart="true"
                                 wave:waveStartPeriod="2"
                                 wave:waveType="sin" />
-                            <com.pingxun.ui.view.WaveViewBySinCos
+                            <com.dbhh.ui.view.WaveViewBySinCos
                                 android:id="@+id/wave_sin3"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -188,6 +188,7 @@
                     <!--联系客服-->
                     <RelativeLayout
                         android:id="@+id/mine_contact_us"
+                        android:visibility="gone"
                         style="@style/WrapWrap"
                         android:layout_marginTop="15dp"
                         android:paddingBottom="6dp">

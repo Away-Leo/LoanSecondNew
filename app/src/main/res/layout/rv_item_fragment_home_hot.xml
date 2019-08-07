@@ -78,7 +78,7 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true">
 
-        <com.pingxun.ui.view.WaveViewBySinCos
+        <com.dbhh.ui.view.WaveViewBySinCos
             android:id="@+id/wave_sin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
